@@ -21,7 +21,6 @@
 					<h3>Sats</h3>
 				</div>
 			</div>
-		</div>
 
 
 
