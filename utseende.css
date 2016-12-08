@@ -12,6 +12,7 @@ body {
   flex-flow: column;
   align-items: center;
   width: 100%;
+  margin-bottom: 50px;
 }
 #startContainer {
   display: flex;
@@ -38,7 +39,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-
+  
   background-image: url("search_bg.JPG");
   background-size: cover;
   background-position-y: -100px;
