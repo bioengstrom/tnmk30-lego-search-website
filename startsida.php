@@ -25,7 +25,7 @@
 						<h3>Sats</h3>
 					</div>
 				</div>
-				<form action="search.php" method="post">
+				<form action="search_sats.php" method="post">
 					<input type="text" name="keyword">
 					<input type="submit" value="search" name="search">
 				</form>

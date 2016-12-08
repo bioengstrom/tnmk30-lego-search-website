@@ -1,6 +1,30 @@
 	<?php include("startsida.php"); ?>
 	
-	<div class ="itemContainer">
+		<div class ="itemContainer">
+	
+		<?php 
+			$connection = mysqli_connect("mysql.itn.liu.se", "lego", "", "lego");
+			
+			if (!$connection) {
+				die('MySQL connection error');
+			}
+			
+			$keyword = mysqli_real_escape_string($connection, $_POST["keyword"]);
+		
+			$result = mysqli_query($connection, "SELECT * FROM sets WHERE Setname LIKE '%$keyword%' ");
+			
+			while($row = mysqli_fetch_row($result)) {
+				print("<tr>");
+				for($i = 0; $i<mysqli_num_fields($result); $i++) {
+					print("<td>$row[$i]</td>");
+				}
+				print "<tr>\n";
+			}
+			
+			mysqli_close($connection);
+			
+		?>
+		
 			<div id="legoItem">
 				<!-- Här ska bitens bild in, bredvid ska namnet på biten finnas, id-nummer 
 				och en drop-down meny med färgalternativ som ska ändra färg på bilden vid 

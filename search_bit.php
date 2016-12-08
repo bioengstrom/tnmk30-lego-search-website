@@ -1,6 +1,16 @@
 <?php include("startsida.php"); ?>
 		
 		<div class ="itemContainer">
+		
+		<?php 
+			$connection = mysqli_connect("mysql.itn.liu.se", "lego", "", "lego");
+			
+			$keyword = mysqli_real_escape_string($connection, $_POST["keyword"]);
+	
+
+		?>
+		
+		
 			<div id="legoItem">
 				<!-- Här ska bitens bild in, bredvid ska namnet på biten finnas, id-nummer 
 				och en drop-down meny med färgalternativ som ska ändra färg på bilden vid 
