@@ -13,13 +13,21 @@
 			<div id="startContainer">
 				<h1 id="startHeader">welcome to <span>Lego Database Finder<span></h1>
 			</div>
-			<div id="searchTabContainer">
-				<div>
-					<h3>Bit</h3>
+			<div id="searchBarContainerBG">
+			</div>
+			<div id="searchBarContainer">
+				<div id="searchTabContainer">
+					<div id="searchSelected">
+						<h3>Bit</h3>
+					</div>
+					<div id="searchUnselected">
+						<h3>Sats</h3>
+					</div>
 				</div>
-				<div>
-					<h3>Sats</h3>
-				</div>
+				<form action="search.php" method="post">
+					<input type="text" name="keyword">
+					<input type="submit" name="search">
+				</form>
 			</div>
 
 

@@ -18,7 +18,7 @@ body {
   justify-content: center;
   align-items: center;
 
-  background-color: #DCD0C0;
+  background-color: #216A9C;
   height: 300px;
   width:70%;
 }
@@ -34,24 +34,73 @@ body {
   font-size: 65px;
   font-weight: 500;
 }
+#searchBarContainerBG {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-image: url("search_bg.JPG");
+  background-size: cover;
+  background-position-y: -100px;
+  -webkit-filter-: brightness(0.7);
+  filter:brightness(0.7);
+  width: 70%;
+  height: 300px;
+}
+
+#searchBarContainer {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+
+  position: relative;
+  top: -300px;
+
+  width: 70%;
+  height: 300px;
+}
 #searchTabContainer{
   display: flex;
   flex-flow: row;
-  width: 70%;
+  width: 100%;
 
-  background-color: #DCD0C0;
+  align-self: flex-start; /*aligns the tab container to the top of parent element*/
 }
 #searchTabContainer div{
   padding: 5px 60px;
-  border: 1px solid black;
-  background-color: #eaeaea;
-
+}
+#searchTabContainer::before{
+  width: 10px;
+  content: "";
+  background-color: #216A9C;
+}
+#searchUnselected{
+  background-color: #216A9C;
+}
+#searchSelected{
+  background-color: none;
 }
 #searchTabContainer div h3{
   font-family: 'open sans';
   font-weight: 300;
-  font-size: 30px;
+  font-size: 20px;
+  color: whitesmoke;
   padding: 0;
   margin: 0;
 
+}
+#searchTabContainer::after{
+  flex-grow: 1;
+  content: "";
+  background-color: #216A9C;
+}
+#searchBarContainer form{
+  width: 100%;
+  text-align: center;
+}
+#searchBarContainer input[type=text]{
+  width: 60%;
+  height: 30px;
+  border: none;
+  border-radius: 2px;
 }
