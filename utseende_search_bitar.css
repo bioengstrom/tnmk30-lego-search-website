@@ -1,4 +1,4 @@
-.partContainer {
+.itemContainer {
 	width: 70%;
 	font-family: 'open sans';
 	float: left;
@@ -6,23 +6,45 @@
 	
 }
 
-#legoPart {
+#legoItem {
 	display: flex;
 	padding-top: 15px;
 	
 	
 }
 
+img {
+	max-width: 100%;
+	height: auto;
+}
+
 .infoText {
 	margin: 15px;
 
+}
 
+#allSets {
+	display: flex;
+	flex-flow: row wrap;
+}
+
+.legoSet {
+	padding: 10px 0;
+	border-top: 2px solid grey;
+	display: flex;
+	width: 50%;
 	
 }
 
-.legoSets {
-	padding: 10px 0;
-	border-top: 2px solid black;
+#allParts {
 	display: flex;
+	flex-flow: row wrap;
+}
+
+.legoPart {
+	padding: 10px 0;
+	border-top: 2px solid grey;
+	display: flex;
+	width: 50%;
 	
 }

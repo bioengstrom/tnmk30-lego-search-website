@@ -1,7 +1,7 @@
 <?php include("startsida.php"); ?>
 		
-		<div class ="partContainer">
-			<div id="legoPart">
+		<div class ="itemContainer">
+			<div id="legoItem">
 				<!-- Här ska bitens bild in, bredvid ska namnet på biten finnas, id-nummer 
 				och en drop-down meny med färgalternativ som ska ändra färg på bilden vid 
 				tryckning.-->
@@ -11,16 +11,27 @@
 					<p class="legoID">ID</p>
 				</div>	
 			</div>
-			<div>
-				<p id ="amountSets">This item is part of ... sets:</p>
-					
-				<div class="legoSets">
+			<p id ="amountSets">This item is part of ... sets:</p>
+			<div id="allSets">
+				<div class="legoSet">
 					<img src="http://1.bp.blogspot.com/-23j6MHmmuto/T3qT9y4oItI/AAAAAAAAALc/-UYN6YSdZLM/s1600/Lego-Brick-4x2.jpg"></img>
 					<div class="infoText">
 						<p>Setname</p><p>Id-number</p></td>
 					</div>
 				</div>
-				<div class="legoSets">
+				<div class="legoSet">
+					<img src="http://1.bp.blogspot.com/-23j6MHmmuto/T3qT9y4oItI/AAAAAAAAALc/-UYN6YSdZLM/s1600/Lego-Brick-4x2.jpg"></img>
+					<div class="infoText">
+						<p>Setname</p><p>Id-number</p></td>
+					</div>
+				</div>
+				<div class="legoSet">
+					<img src="http://1.bp.blogspot.com/-23j6MHmmuto/T3qT9y4oItI/AAAAAAAAALc/-UYN6YSdZLM/s1600/Lego-Brick-4x2.jpg"></img>
+					<div class="infoText">
+						<p>Setname</p><p>Id-number</p></td>
+					</div>
+				</div>
+				<div class="legoSet">
 					<img src="http://1.bp.blogspot.com/-23j6MHmmuto/T3qT9y4oItI/AAAAAAAAALc/-UYN6YSdZLM/s1600/Lego-Brick-4x2.jpg"></img>
 					<div class="infoText">
 						<p>Setname</p><p>Id-number</p></td>
