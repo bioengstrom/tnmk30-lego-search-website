@@ -27,7 +27,7 @@
 				</div>
 				<form action="search.php" method="post">
 					<input type="text" name="keyword">
-					<input type="submit" name="search">
+					<input type="submit" value="search" name="search">
 				</form>
 			</div>
 

@@ -7,6 +7,9 @@ body {
   display: flex;
   justify-content: center;
 }
+a,p,h1,h2,h3,h4,h5,input {
+  font-family: 'open sans', arial;
+}
 .colContainer{
   display: flex;
   flex-flow: column;
@@ -19,19 +22,19 @@ body {
   align-items: center;
 
   background-color: #216A9C;
-  height: 300px;
+  height: 200px;
   width:70%;
 }
 #startHeader {
   font-family: 'open sans';
   font-weight: 300;
-  font-size: 40px;
+  font-size: 35px;
   text-align: center;
   color: whitesmoke;
 }
 #startHeader span{
   display: block;
-  font-size: 65px;
+  font-size: 60px;
   font-weight: 500;
 }
 #searchBarContainerBG {
@@ -45,7 +48,7 @@ body {
   -webkit-filter-: brightness(0.7);
   filter:brightness(0.7);
   width: 70%;
-  height: 300px;
+  height: 350px;
 }
 
 #searchBarContainer {
@@ -54,7 +57,7 @@ body {
   justify-content: center;
 
   position: relative;
-  top: -300px;
+  top: -350px; /*FIX FOR ALIGNMENT TO PARENT TOP*/
 
   width: 70%;
   height: 300px;
@@ -99,8 +102,24 @@ body {
   text-align: center;
 }
 #searchBarContainer input[type=text]{
-  width: 60%;
-  height: 30px;
+  width: calc(60% - 20px);
+  max-width: 700px;
+  height: 42px;
+  padding: 0 10px;
   border: none;
-  border-radius: 2px;
+  border-radius: 4px 0px 0px 4px;
+  font-size: 18px;
+}
+#searchBarContainer input[type=submit]{
+  width: 10%;
+  max-width: 70px;
+  border: none;
+  height: 42px;
+  padding: 0;
+  border-radius: 0px 4px 4px 0px;
+  background-color: #216A9C;
+
+  color: whitesmoke;
+  font-size: 18px;
+  font-weight: 300;
 }
