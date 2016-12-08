@@ -1,0 +1,28 @@
+.partContainer {
+	width: 70%;
+	font-family: 'open sans';
+	float: left;
+	
+	
+}
+
+#legoPart {
+	display: flex;
+	padding-top: 15px;
+	
+	
+}
+
+.infoText {
+	margin: 15px;
+
+
+	
+}
+
+.legoSets {
+	padding: 10px 0;
+	border-top: 2px solid black;
+	display: flex;
+	
+}
