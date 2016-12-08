@@ -1,9 +1,31 @@
-<<<<<<< HEAD
-body{
-	background-color: ;
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #F4F4F4;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
 }
-=======
+#startContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #DCD0C0;
+  height: 300px;
+  width:100%;
+  max-width: 70%;
+}
 #startHeader {
-  
+  font-family: 'open sans';
+  font-weight: 300;
+  font-size: 40px;
+  text-align: center;
+  color: whitesmoke;
 }
->>>>>>> 43b7c9d160df966ca2dae82c5f24397342045582
+#startHeader span{
+  display: block;
+  font-size: 65px;
+  font-weight: 500;
+}
