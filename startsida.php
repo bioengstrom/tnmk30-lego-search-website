@@ -20,15 +20,15 @@
 				<div id="searchBarContainer">
 					<div id="searchTabContainer">
 						<div id="searchBit" onclick="changeTab(this.id)">
-							<h3>Bit</h3>
+							<h3>Part</h3>
 						</div>
 						<div id="searchSats" onclick="changeTab(this.id)">
-							<h3>Sats</h3>
+							<h3>Sets</h3>
 						</div>
 					</div>
 					<form action="search_bit.php" method="post">
 						<h5 class="alertWarning">Search value must be longer than 3 characters</h5>
-						<input type="text" placeholder="Type in a Piece Name to start Finding" name="keyword">
+						<input type="text" placeholder="Type in a Piece Name to start Finding" name="keyword" id="keyword" onClick="runFunction()">
 						<input type="submit" value="search" name="search">
 						<p>
 							Specify your search after attributes like color or size

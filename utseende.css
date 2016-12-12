@@ -69,8 +69,8 @@ a,p,h1,h2,h3,h4,h5,input {
 #searchTabContainer{
   display: flex;
   flex-flow: row;
-  background-color: #7c1313;
-  border-bottom: 2px solid #C62828;
+  background-color: #1A237E;
+  border-bottom: 2px solid #3F51B5;
 
   width: 100%;
   padding-top: 10px;
@@ -84,13 +84,13 @@ a,p,h1,h2,h3,h4,h5,input {
 #searchTabContainer::before{
   width: 10px;
   content: "";
-  background-color: #7c1313;
+  background-color: #1A237E;
 }
 #searchSats{
-  background-color: #7c1313;
+  background-color: #1A237E;
 }
 #searchBit{
-  background-color: #C62828;
+  background-color: #3F51B5;
 }
 #searchTabContainer div h3{
   font-family: 'open sans';
@@ -118,6 +118,7 @@ a,p,h1,h2,h3,h4,h5,input {
   font-size: 18px;
   background-color: rgba(255, 255, 255, 0.9);
   box-shadow: 0px 0px 3px whitesmoke;
+  margin-top: 5px;
 }
 #searchBarContainer input[type=submit]{
   width: 10%;
@@ -126,7 +127,7 @@ a,p,h1,h2,h3,h4,h5,input {
   height: 42px;
   padding: 0;
   border-radius: 0px 4px 4px 0px;
-  background-color: #1976D2;
+  background-color: #4CAF50;
 
   color: whitesmoke;
   font-size: 18px;
@@ -137,16 +138,20 @@ a,p,h1,h2,h3,h4,h5,input {
   color: #1d1d1d;
 }
 .alertWarning{
-  margin: 8px auto;
+  margin: -42px auto 0 auto;
   width: calc(70% - 15px); /* attempt at using searchbar's and submit's button width to make this element just as wide. doesn't really work atm*/
   padding: 18px 0;
   max-width: 790px;
   border-radius: 2px;
   text-align: left;
   line-height: 0;
+  display: none;
+  opacity: 0;
 
-  color: #1d1d1d;
-  background-color: rgba(242, 87, 87, 0.9);
+  color: #772929;
+  background: linear-gradient(to bottom, #f25757, #d64d4d);
+
+  transition: all 0.5s background, color, display;
 }
 .alertWarning::before{
   content: "!";
