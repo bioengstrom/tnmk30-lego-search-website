@@ -11,7 +11,7 @@
 		<script src="validator.js"></script>
 		<link href="utseende_search_bitar.css" rel="stylesheet" type="text/css"/>
 	</head>
-	<body>
+	<body onload="tabColor()">
 		<div class="colContainer">
 			<div id="startContainerBG">
 			</div>

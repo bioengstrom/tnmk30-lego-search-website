@@ -37,6 +37,7 @@ a,p,h1,h2,h3,h4,h5,input {
   background-image: url("search_sats.jpg");
   background-size: cover;
   background-position-y: -100px;
+  background-repeat: no-repeat;
   -webkit-filter-: brightness(0.7);
   filter:brightness(0.6);
   width: 90%;
