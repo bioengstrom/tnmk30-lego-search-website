@@ -15,16 +15,32 @@ a,p,h1,h2,h3,h4,h5,input {
   flex-flow: column;
   align-items: center;
   width: 100%;
-  margin-bottom: 50px;
 }
 #startContainer {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+  align-items: center;
+
+  height: 600px;
+  width:100%;
+}
+#startContainerBG {
   display: flex;
   justify-content: center;
   align-items: center;
 
-  background-color: #216A9C;
-  height: 200px;
-  width:70%;
+  position: absolute;
+  z-index: -1;
+
+  background-color: #3F51B5;
+  background-image: url("search_sats.jpg");
+  background-size: cover;
+  background-position-y: -100px;
+  -webkit-filter-: brightness(0.7);
+  filter:brightness(0.6);
+  width: 100%;
+  height: 600px;
 }
 #startHeader {
   font-family: 'open sans';
@@ -32,57 +48,47 @@ a,p,h1,h2,h3,h4,h5,input {
   font-size: 35px;
   text-align: center;
   color: whitesmoke;
+  line-height: 50px;
 }
 #startHeader span{
   display: block;
   font-size: 60px;
   font-weight: 500;
 }
-#searchBarContainerBG {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  background-image: url("search_bg.JPG");
-  background-size: cover;
-  background-position-y: -100px;
-  -webkit-filter-: brightness(0.7);
-  filter:brightness(0.7);
-  width: 70%;
-  height: 350px;
-}
-
 #searchBarContainer {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
 
-  position: relative;
-  top: -350px; /*FIX FOR ALIGNMENT TO PARENT TOP*/
-
   width: 70%;
   height: 300px;
+
+  background: linear-gradient(to bottom right, #5C6BC0 40%, #26A69A);
 }
 #searchTabContainer{
   display: flex;
   flex-flow: row;
+  background-color: #3949AB;
+
   width: 100%;
+  padding-top: 10px;
 
   align-self: flex-start; /*aligns the tab container to the top of parent element*/
 }
 #searchTabContainer div{
   padding: 5px 60px;
+  border-radius: 2px 2px 0 0;
 }
 #searchTabContainer::before{
   width: 10px;
   content: "";
-  background-color: #216A9C;
+  background-color: #3949AB;
 }
-#searchUnselected{
-  background-color: #216A9C;
+#searchSats{
+  background-color: #3949AB;
 }
-#searchSelected{
-  background-color: none;
+#searchBit{
+  background-color: #5C6BC0;
 }
 #searchTabContainer div h3{
   font-family: 'open sans';
@@ -94,12 +100,7 @@ a,p,h1,h2,h3,h4,h5,input {
   margin: 0;
 }
 #searchTabContainer div:hover{
-  cursor: pointer; 
-}
-#searchTabContainer::after{
-  flex-grow: 1;
-  content: "";
-  background-color: #216A9C;
+  cursor: pointer;
 }
 #searchBarContainer form{
   width: 100%;
@@ -114,6 +115,7 @@ a,p,h1,h2,h3,h4,h5,input {
   border-radius: 4px 0px 0px 4px;
   font-size: 18px;
   background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0px 0px 3px whitesmoke;
 }
 #searchBarContainer input[type=submit]{
   width: 10%;
@@ -122,9 +124,13 @@ a,p,h1,h2,h3,h4,h5,input {
   height: 42px;
   padding: 0;
   border-radius: 0px 4px 4px 0px;
-  background-color: #216A9C;
+  background-color: #009688;
 
   color: whitesmoke;
   font-size: 18px;
   font-weight: 300;
+}
+#searchBarContainer p{
+  font-size: 14px;
+  color: #1d1d1d;
 }
