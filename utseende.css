@@ -80,6 +80,7 @@ a,p,h1,h2,h3,h4,h5,input {
 #searchTabContainer div{
   padding: 5px 60px;
   border-radius: 2px 2px 0 0;
+  transition: ease-in-out 0.15s background-color;
 }
 #searchTabContainer::before{
   width: 10px;
@@ -132,6 +133,12 @@ a,p,h1,h2,h3,h4,h5,input {
   color: whitesmoke;
   font-size: 18px;
   font-weight: 300;
+  transition: linear 0.1s color, backgound-color;
+}
+#searchBarContainer input[type=submit]:hover{
+  background-color: #43A047;
+  color: #1d1d1d;
+  cursor: pointer;
 }
 #searchBarContainer p{
   font-size: 14px;
