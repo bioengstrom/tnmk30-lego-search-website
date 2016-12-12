@@ -39,7 +39,7 @@ a,p,h1,h2,h3,h4,h5,input {
   background-position-y: -100px;
   -webkit-filter-: brightness(0.7);
   filter:brightness(0.6);
-  width: 100%;
+  width: 90%;
   height: 600px;
 }
 #startHeader {
@@ -62,13 +62,15 @@ a,p,h1,h2,h3,h4,h5,input {
 
   width: 70%;
   height: 300px;
+  border-radius: 1px;
 
-  background: linear-gradient(to bottom right, #5C6BC0 40%, #26A69A);
+  background: #EEEEEE;
 }
 #searchTabContainer{
   display: flex;
   flex-flow: row;
-  background-color: #3949AB;
+  background-color: #7c1313;
+  border-bottom: 2px solid #C62828;
 
   width: 100%;
   padding-top: 10px;
@@ -82,13 +84,13 @@ a,p,h1,h2,h3,h4,h5,input {
 #searchTabContainer::before{
   width: 10px;
   content: "";
-  background-color: #3949AB;
+  background-color: #7c1313;
 }
 #searchSats{
-  background-color: #3949AB;
+  background-color: #7c1313;
 }
 #searchBit{
-  background-color: #5C6BC0;
+  background-color: #C62828;
 }
 #searchTabContainer div h3{
   font-family: 'open sans';
@@ -124,7 +126,7 @@ a,p,h1,h2,h3,h4,h5,input {
   height: 42px;
   padding: 0;
   border-radius: 0px 4px 4px 0px;
-  background-color: #009688;
+  background-color: #C62828;
 
   color: whitesmoke;
   font-size: 18px;
@@ -133,4 +135,22 @@ a,p,h1,h2,h3,h4,h5,input {
 #searchBarContainer p{
   font-size: 14px;
   color: #1d1d1d;
+}
+.alertWarning{
+  margin: 8px auto;
+  width: calc(70% - 15px); /* attempt at using searchbar's and submit's button width to make this element just as wide. doesn't really work atm*/
+  padding: 5px 0;
+  max-width: 790px;
+  border-radius: 2px;
+  text-align: left;
+
+  color: #1d1d1d;
+  background-color: rgba(242, 87, 87, 0.9);
+}
+.alertWarning::before{
+  content: "!";
+  background-color: #af3d3d;
+  margin: 0 5px 0 0;
+  padding: 5px 10px;
+  font-size: 20px;
 }
