@@ -2,7 +2,7 @@ function runFunction() {
   setTimeout(startInterval, 2000);
 }
 function startInterval() {
-  setInterval(checkLength, 10);
+  setInterval(checkLength, 50);
 }
 function checkLength() {
     var keyword = document.getElementById("keyword");
@@ -19,18 +19,24 @@ function display(visual) {
   if (visual == "block") {
     console.log("waddup");
     if (opacity >= 0) {
-        opacity -= 0.05;
+        opacity -= 0.15;
+    } else {
+        clearInterval(interval);
     }
+
     alert.style.opacity = opacity + "";
   }
   else if (visual == "none") {
     console.log("boi");
     if (opacity <= 1) {
-        opacity += 0.05;
+        opacity += 0.15;
+    } else {
+        clearInterval(interval);
     }
+
 
     alert.style.display = "block";
     alert.style.opacity = opacity +"";
   }
 }
- /*FIX THIS BULLSHIT ASS CODE*/
+ /*FIX THIS BULLSHIT ASS CODE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
