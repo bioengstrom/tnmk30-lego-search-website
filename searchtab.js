@@ -15,3 +15,4 @@ function changeTab(clicked){
       document.getElementById('searchBarContainerBG').style.backgroundPositionY = "-200px";
   }
 }
+

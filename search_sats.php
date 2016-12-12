@@ -13,7 +13,7 @@
 		
 			$result = mysqli_query($connection, "SELECT * FROM sets WHERE Setname LIKE '%$keyword%' ");
 			
-			while($row = mysqli_fetch_row($result)) {
+			while($row = mysqli_fetch_row($result) AND $keyword != null) {
 				print("<tr>");
 				for($i = 0; $i<mysqli_num_fields($result); $i++) {
 					print("<td>$row[$i]</td>");

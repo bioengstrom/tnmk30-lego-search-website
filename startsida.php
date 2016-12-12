@@ -8,6 +8,7 @@
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700" rel="stylesheet">
 		<link href="utseende.css" rel="stylesheet" type="text/css"/>
 		<script src="searchtab.js"></script>
+		<script src="validator.js"></script>
 		<link href="utseende_search_bitar.css" rel="stylesheet" type="text/css"/>
 	</head>
 	<body>
@@ -27,8 +28,8 @@
 					</div>
 				</div>
 				<form action="search_sats.php" method="post">
-					<input type="text" name="keyword">
-					<input type="submit" value="search" name="search">
+					<input type="text" name="keyword" onclick="checkLength()">
+					<input type="submit" value="search" name="search" onclick="checkLength()">
 				</form>
 			</div>
 
