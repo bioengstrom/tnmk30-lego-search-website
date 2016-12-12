@@ -11,26 +11,25 @@
 			
 			$keyword = mysqli_real_escape_string($connection, $_POST["keyword"]);
 			
-			$result = mysqli_query($connection, "SELECT parts.Partname, parts.PartID, inventory.Quantity, sets.Setname, sets.SetID FROM sets, inventory, parts WHERE (sets.SetID LIKE '%$keyword%' OR sets.Setname LIKE '%$keyword%') AND sets.SetID=inventory.SetID AND inventory.ItemID=parts.PartID");
+			$result = mysqli_query($connection, "SELECT parts.Partname, parts.PartID, colors.Colorname, inventory.Quantity, 
+									sets.Setname, sets.SetID FROM sets, inventory, colors, parts WHERE (sets.SetID LIKE 
+									'%$keyword%' OR sets.Setname LIKE '%$keyword%') AND sets.SetID=inventory.SetID AND 
+									inventory.ColorID=colors.ColorID AND inventory.ItemID=parts.PartID");
+			
+			print("<p id ='amountParts'>This item consists of:</p>
+			<div id='allParts'>");
 			
 			while($row = mysqli_fetch_row($result) AND $keyword != NULL) {
-			for($i = 0; $i<mysqli_num_fields($result); $i++) {
-				$row = mysqli_fetch_array($result);
-				echo "<p>", $row["Partname"], "</p>", $row["PartID"], "</p>", 
-				$row["Quantity"], "</p>";
-			}}
-			// while($row = mysqli_fetch_row($result)) {
-				// $partname = $row['parts.Partname'];
-				// print("<p>$partname</p>\n");
-				// $partID = $row['parts.PartID'];
-				// print("<p>$partID</p>\n");
-				// $quantity = $row['inventory.Quantity'];
-				// print("<p>Number of pieces: $quantity</p>\n");
-				
-			// for($i = 0; $i<mysqli_num_fields($result); $i++) {
-				// print("<p>$row[$i]</p>");
-			// }
-			// }
+				for($i = 0; $i<mysqli_num_fields($result); $i++) {
+					$row = mysqli_fetch_array($result);
+					print ("<div class='legoPart'>");
+					//bild in här
+					echo "<div class='infoText'><p>", $row["Partname"], "</p><p>", $row["PartID"], "</p><p>", 
+					$row["Colorname"], "</p><p>Quantity: ", $row["Quantity"], "</p></div>";
+					print ("</div>");
+				}
+			}
+			print ("</div>");
 			
 			mysqli_close($connection);
 			
