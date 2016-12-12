@@ -11,14 +11,16 @@
 			
 			$keyword = mysqli_real_escape_string($connection, $_POST["keyword"]);
 		
-			$result = mysqli_query($connection, "SELECT * FROM sets WHERE Setname LIKE '%$keyword%' ");
+			$result = mysqli_query($connection, "SELECT images.has_gif, images.has_jpg, images.ItemtypeID, sets.Setname, sets.SetID FROM sets INNER JOIN images ON sets.SetID = images.ItemID WHERE sets.Setname LIKE '%$keyword%' OR sets.SetID LIKE '%$keyword%'");
 			
-			while($row = mysqli_fetch_row($result) AND $keyword != null) {
-				print("<tr>");
-				for($i = 0; $i<mysqli_num_fields($result); $i++) {
-					print("<td>$row[$i]</td>");
-				}
-				print "<tr>\n";
+			while($row = mysqli_fetch_row($result)) { // AND $keyword != null
+				$test = $row['Setname'];
+				print ("<p>$test</p>");
+				// print("<tr>");
+				// for($i = 0; $i<mysqli_num_fields($result); $i++) {
+					// print("<td>$row[$i]</td>");		
+				// }
+				// print "<tr>\n";
 			}
 			
 			mysqli_close($connection);
