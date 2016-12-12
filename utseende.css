@@ -126,7 +126,7 @@ a,p,h1,h2,h3,h4,h5,input {
   height: 42px;
   padding: 0;
   border-radius: 0px 4px 4px 0px;
-  background-color: #C62828;
+  background-color: #1976D2;
 
   color: whitesmoke;
   font-size: 18px;
@@ -139,10 +139,11 @@ a,p,h1,h2,h3,h4,h5,input {
 .alertWarning{
   margin: 8px auto;
   width: calc(70% - 15px); /* attempt at using searchbar's and submit's button width to make this element just as wide. doesn't really work atm*/
-  padding: 5px 0;
+  padding: 18px 0;
   max-width: 790px;
   border-radius: 2px;
   text-align: left;
+  line-height: 0;
 
   color: #1d1d1d;
   background-color: rgba(242, 87, 87, 0.9);
@@ -151,6 +152,7 @@ a,p,h1,h2,h3,h4,h5,input {
   content: "!";
   background-color: #af3d3d;
   margin: 0 5px 0 0;
-  padding: 5px 10px;
+  padding: 7px 10px;
   font-size: 20px;
+  line-height: 0.3;
 }
