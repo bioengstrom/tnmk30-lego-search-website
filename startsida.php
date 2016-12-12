@@ -26,7 +26,8 @@
 							<h3>Sats</h3>
 						</div>
 					</div>
-					<form action="search_sats.php" method="post">
+					<form action="search_bit.php" method="post">
+						<!--<h5 class="alertWarning">Query must be longer than 3 characters</h5>-->
 						<input type="text" placeholder="Type in a Piece Name to start Finding" name="keyword">
 						<input type="submit" value="search" name="search">
 						<p>

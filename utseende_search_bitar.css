@@ -2,13 +2,12 @@
 	width: 70%;
 	font-family: 'open sans';
 	float: left;
-	margin-top: -300px;
 }
 
 #legoItem {
 	display: flex;
 	padding-top: 15px;
-	
+
 }
 
 img {
@@ -31,7 +30,7 @@ img {
 	border-top: 2px solid grey;
 	display: flex;
 	width: 50%;
-	
+
 }
 
 #allParts {
@@ -44,5 +43,5 @@ img {
 	border-top: 2px solid grey;
 	display: flex;
 	width: 50%;
-	
+
 }
