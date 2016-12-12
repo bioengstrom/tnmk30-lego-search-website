@@ -10,18 +10,27 @@
 			}
 			
 			$keyword = mysqli_real_escape_string($connection, $_POST["keyword"]);
-		
-			$result = mysqli_query($connection, "SELECT images.has_gif, images.has_jpg, images.ItemtypeID, sets.Setname, sets.SetID FROM sets INNER JOIN images ON sets.SetID = images.ItemID WHERE sets.Setname LIKE '%$keyword%' OR sets.SetID LIKE '%$keyword%'");
 			
-			while($row = mysqli_fetch_row($result)) { // AND $keyword != null
-				$test = $row['Setname'];
-				print ("<p>$test</p>");
-				// print("<tr>");
-				// for($i = 0; $i<mysqli_num_fields($result); $i++) {
-					// print("<td>$row[$i]</td>");		
-				// }
-				// print "<tr>\n";
-			}
+			$result = mysqli_query($connection, "SELECT parts.Partname, parts.PartID, inventory.Quantity, sets.Setname, sets.SetID FROM sets, inventory, parts WHERE (sets.SetID LIKE '%$keyword%' OR sets.Setname LIKE '%$keyword%') AND sets.SetID=inventory.SetID AND inventory.ItemID=parts.PartID");
+			
+			while($row = mysqli_fetch_row($result) AND $keyword != NULL) {
+			for($i = 0; $i<mysqli_num_fields($result); $i++) {
+				$row = mysqli_fetch_array($result);
+				echo "<p>", $row["Partname"], "</p>", $row["PartID"], "</p>", 
+				$row["Quantity"], "</p>";
+			}}
+			// while($row = mysqli_fetch_row($result)) {
+				// $partname = $row['parts.Partname'];
+				// print("<p>$partname</p>\n");
+				// $partID = $row['parts.PartID'];
+				// print("<p>$partID</p>\n");
+				// $quantity = $row['inventory.Quantity'];
+				// print("<p>Number of pieces: $quantity</p>\n");
+				
+			// for($i = 0; $i<mysqli_num_fields($result); $i++) {
+				// print("<p>$row[$i]</p>");
+			// }
+			// }
 			
 			mysqli_close($connection);
 			
