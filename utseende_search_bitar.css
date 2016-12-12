@@ -16,7 +16,7 @@ img {
 }
 
 .infoText {
-	margin: 5px 15px;
+	margin: 0px 15px;
 
 }
 
@@ -43,5 +43,10 @@ img {
 	border-top: 2px solid grey;
 	display: flex;
 	width: 50%;
+}
 
+.partImg {
+	max-height: 100px;
+	max-width: 130px;
+	float: left;
 }
