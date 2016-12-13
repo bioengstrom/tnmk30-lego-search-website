@@ -4,12 +4,21 @@ function runFunction() {
   setTimeout(startInterval, 3000);
 }
 function startInterval() {
-  setInterval(checkLength, 1000);
+  var checkInterval = setInterval(checkLength(checkInterval), 1000);
+}
+function stopInterval(checkInterval) {
+  console.log("interval stopped");
+  clearInterval(checkInterval);
 }
 
 //checks length of string entered in searchbar.
-function checkLength() {
+function checkLength(checkInterval) {
   var keyword = document.getElementById("keyword");
+  console.log(keyword.onfocusout);
+  if(keyword.onfocusout) {
+    stopInterval(checkInterval);
+  }
+  //keyword.onfocusout = stopInterval(checkInterval);
   if(keyword.value.length >= 3 || keyword.value.length == 0){
     display("block");
   }
