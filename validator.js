@@ -1,17 +1,11 @@
 //runs the script so that it updates without requiring reload, (aka AJAX?)
 
 function runFunction() {
-  setTimeout(intervalController, 3000);
+  setTimeout(startInterval, 3000);
 }
 
-function intervalController(action) {
-  console.log("intervalController is running");
-  if (action == "stop") {
-    clearInterval(checkInterval);
-    console.log("interval stopped");
-  } else {
-      var checkInterval = setInterval(checkLength, 1000);
-  }
+function startInterval() {
+  setInterval(checkLength, 1000);
 }
 
 //checks length of string entered in searchbar.

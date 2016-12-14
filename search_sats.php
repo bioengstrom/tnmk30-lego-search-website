@@ -17,20 +17,39 @@
 									AND sets.SetID=inventory.SetID AND inventory.ItemID=parts.PartID AND
 									inventory.ColorID=colors.ColorID ORDER BY Partname");
 
+			$link = "http://weber.itn.liu.se/~stegu76/img.bricklink.com";
+
+			$setsearch = mysqli_query($connection, "SELECT SetID, Setname FROM sets WHERE (SetID LIKE '%$keyword%' OR Setname LIKE '%$keyword%')");
+
+			while($setinfo = mysqli_fetch_array($setsearch) AND $keyword != NULL) {
+
+				$SetID = $setinfo['SetID'];
+
+				print("<div id='legoItem'>");
+				$imagesearch = mysqli_query($connection, "SELECT * FROM images WHERE ItemID='$SetID' AND ItemTypeID = 'S'");
+			// By design, the query above should return exactly one row.
+				$imageinfo = mysqli_fetch_array($imagesearch);
+					if($imageinfo['has_largejpg']) { // Use JPG if it exists
+							$filename = "$link/SL/$SetID.jpg";
+					} else if($imageinfo['has_largegif']) { // Use GIF if JPG is unavailable
+							$filename = "$link/SL/$SetID.gif";
+					} else { // If neither format is available, insert a placeholder image
+							$filename = "error.png";
+					}
+					echo "<img class='setImg' src='".$filename."'></img>";
+
+					echo "<div class='infoText'><p class='legoName'>".$setinfo["Setname"]."</p>
+					 			<p class='legoID'>ID-number: ".$setinfo["SetID"]."</p></div>";
+				 		print ("</div>");
+					}
+
 			print("<p id ='amountParts'>This item consists of:</p>
 			<div id='allParts'>");
-
-			// print("<div id='legoItem'>");
-				// echo "<div class='infoText'><p class='legoName'>".$row["Setname"]."</p>
-					// <p class='legoID'>".$row["SetID"]."</p></div>";
-				// print ("</div>");
-
 
 			while($row = mysqli_fetch_array($result) AND $keyword != NULL)
 			{
 					print ("<div class='legoPart'>");
 
-					$link = "http://weber.itn.liu.se/~stegu76/img.bricklink.com";
 					$ItemID = $row['ItemID'];
 					$ColorID = $row['ColorID'];
 					$imagesearch = mysqli_query($connection, "SELECT * FROM images WHERE ItemTypeID='P' AND ItemID='$ItemID' AND ColorID=$ColorID");
@@ -44,24 +63,20 @@
 				 	 			$filename = "error.png";
 				    }
 
-
 				  echo "<div class='imgContainer'><img src='".$filename."'></div";
-					echo "<div class='infoText'><p>", $row["Partname"], "</p><p class='legoPartId'>", $row["PartID"], "</p><p>",
+					echo "<div class='infoText'><p>", $row["Partname"], "</p><p>ID-number: ", $row["PartID"], "</p><p>Color: ",
 					$row["Colorname"], "</p><p>Quantity: ", $row["Quantity"], "</p></div>";
 					print ("</div>");
-
 			}
 
 			print ("</div>");
 			mysqli_close($connection);
-
 		?>
 		<div id="allParts">
 			<div class="legoPart">
 				<div class="imgContainer">
 					<img class="partImg" src="http://1.bp.blogspot.com/-23j6MHmmuto/T3qT9y4oItI/AAAAAAAAALc/-UYN6YSdZLM/s1600/Lego-Brick-4x2.jpg">
 				</div>
-
 				<div class="infoText">
 					<p class="legoPartTitle">Antenna whip flag lorem ipsum dolor</p>
 					<p class="legoPartId"><span>ID:</span>124324</p>
@@ -88,9 +103,6 @@
 				</div>
 			</div>
 		</div>
-
 	</div>
-
-
 	</body>
 </html>
