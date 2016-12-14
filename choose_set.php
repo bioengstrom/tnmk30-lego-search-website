@@ -37,7 +37,7 @@
 			else { // If neither format is available, insert a placeholder image
 				$filename = "error.png";
 			}
-      
+
 			echo "<a class='legoSet' href='search_sats.php?SetID=".$SetID."'>"; //Link to the displayed set
 			echo "<div>";
 			echo "<img src='".$filename."'>";
