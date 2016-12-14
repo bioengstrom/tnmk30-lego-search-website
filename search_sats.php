@@ -9,7 +9,7 @@
 				die('MySQL connection error');
 			}
 
-			$keyword = mysqli_real_escape_string($connection, $_POST["keyword"]);
+			$keyword = $_GET['SetID'];
 
 			$result = mysqli_query($connection, "SELECT parts.Partname, parts.PartID, inventory.ItemID, colors.ColorID,
 									colors.Colorname, inventory.Quantity, sets.Setname, sets.SetID FROM sets, inventory,
