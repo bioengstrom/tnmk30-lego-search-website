@@ -22,7 +22,7 @@
 			$setsearch = mysqli_query($connection, "SELECT SetID, Setname FROM sets WHERE SetID='$SetID'");
 
 			while($setinfo = mysqli_fetch_array($setsearch)) {
-				print("<div id='legoItem'>");
+
 				$imagesearch = mysqli_query($connection, "SELECT * FROM images WHERE ItemID='$SetID' AND ItemTypeID = 'S'");
 			// By design, the query above should return exactly one row.
 				$imageinfo = mysqli_fetch_array($imagesearch);
@@ -33,11 +33,13 @@
 					} else { // If neither format is available, insert a placeholder image
 							$filename = "error.png";
 					}
+					/*PRINT SET OUTPUT*/
+					echo "<div id='legoItem'>";
 					echo "<img class='setImg' src='".$filename."'></img>";
 
 					echo "<div class='infoText'><p class='legoName'>".$setinfo["Setname"]."</p>
 					 			<p class='legoID'>ID-number: ".$setinfo["SetID"]."</p></div>";
-				 		print ("</div>");
+				 	echo "</div>";
 					}
 
 			print("<p id ='amountParts'>This item consists of:</p>
@@ -45,31 +47,36 @@
 
 			while($row = mysqli_fetch_array($result))
 			{
-					print ("<div class='legoPart'>");
+				$ItemID = $row['ItemID'];
+				$ColorID = $row['ColorID'];
+				$imagesearch = mysqli_query($connection, "SELECT * FROM images WHERE ItemTypeID='P' AND ItemID='$ItemID' AND ColorID=$ColorID");
+		    // By design, the query above should return exactly one row.
+		    $imageinfo = mysqli_fetch_array($imagesearch);
+			    if($imageinfo['has_jpg']) { // Use JPG if it exists
+			 	 			$filename = "$link/P/$ColorID/$ItemID.jpg";
+			    } else if($imageinfo['has_gif']) { // Use GIF if JPG is unavailable
+			 	 			$filename = "$link/P/$ColorID/$ItemID.gif";
+			    } else { // If neither format is available, insert a placeholder image
+			 	 			$filename = "error.png";
+			    }
 
-					$ItemID = $row['ItemID'];
-					$ColorID = $row['ColorID'];
-					$imagesearch = mysqli_query($connection, "SELECT * FROM images WHERE ItemTypeID='P' AND ItemID='$ItemID' AND ColorID=$ColorID");
-			    // By design, the query above should return exactly one row.
-			    $imageinfo = mysqli_fetch_array($imagesearch);
-				    if($imageinfo['has_jpg']) { // Use JPG if it exists
-				 	 			$filename = "$link/P/$ColorID/$ItemID.jpg";
-				    } else if($imageinfo['has_gif']) { // Use GIF if JPG is unavailable
-				 	 			$filename = "$link/P/$ColorID/$ItemID.gif";
-				    } else { // If neither format is available, insert a placeholder image
-				 	 			$filename = "error.png";
-				    }
-
-				  echo "<div class='imgContainer'><img src='".$filename."'></div";
-					echo "<div class='infoText'><p>", $row["Partname"], "</p><p>ID-number: ", $row["PartID"], "</p><p>Color: ",
-					$row["Colorname"], "</p><p>Quantity: ", $row["Quantity"], "</p></div>";
-					print ("</div>");
+						/*PRINT SET PARTS OUTPUT*/
+					echo "<a class='legoPart' href='#'>";
+					echo "<div>";
+					echo "<img src='".$filename."'>";
+					echo "<span>";
+					echo "<p class='legoPartTitle'>".$row["Partname"]."</p>";
+					echo "<p class='legoPartId'>id: ".$row["PartID"]."</p>";
+					echo "<p>Color: ".$row["Colorname"]."</p>";
+					echo "<p>Quantity: ".$row["Quantity"]."</p>";
+					echo "</span>";
+					echo "</div>";
+					echo "</a>";
 			}
-
-			print ("</div>");
+			echo "</div>";
 			mysqli_close($connection);
 		?>
-		
+
 	</div>
 	</body>
 </html>

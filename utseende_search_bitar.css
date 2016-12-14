@@ -74,6 +74,7 @@
 	background-color: white;
 	border: 1px solid #eaeaea;
 	border-bottom: 3px solid #eaeaea;
+	transition: 0.05s ease-in-out border;
 }
 .legoSet:hover{
 	border-bottom: 3px solid #1A237E;

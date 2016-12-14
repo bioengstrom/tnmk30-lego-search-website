@@ -36,7 +36,7 @@
 			}
 
       /*BEGIN PRINTING OUTPUT*/
-      /* output for one one set*/
+      /* output for one set*/
       echo "<a class='legoSet' href='search_sats.php?SetID=".$SetID."'>";
       echo "<div>";
 			echo "<img src='".$filename."'>";
@@ -45,33 +45,13 @@
               <p class='legoSetId'>id: ".$SetID."</p>
             </span>";
       echo "</div>";
+      echo "</a>"
 
-			//echo "</div>"; //close allParts div
+
 		}
-
-		print ("</div>"); // close itemContainer div
+    echo "</div>"; //close allParts div
+		echo "</div>"; // close itemContainer div
 		mysqli_close($connection);
     ?>
-
-    <!---<div id="itemContainer">
-      <a href="#" class='legoSet'>
-        <div>
-          <img src="http://placehold.it/100x150">
-          <span>
-            <p class="legoSetTitle">Aqua thingy much wow</p>
-            <p class="legoSetId"><span>id: </span>134134</p>
-          </span>
-
-        </div>
-      </a>
-      <a href="#" class='legoSet'>
-        <div>
-          <img src="http://placehold.it/100x150">
-          <p class="legoSetTitle">Aqua thingy much wow</p>
-          <p class="legoSetId"><span>id: </span>134134</p>
-        </div>
-      </a>
-    </div>
-  </div> -->
   </body>
 </html>
