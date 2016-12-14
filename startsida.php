@@ -4,11 +4,10 @@
 		<title>Lego DB searcher 2000</title>
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700" rel="stylesheet">
 		<link href="utseende.css" rel="stylesheet" type="text/css"/>
+		<link href="utseende_search_bitar.css" rel="stylesheet" type="text/css"/>
+		<link href="animation.css" rel="stylesheet" type="text/css"/>
 		<script src="searchtab.js"></script>
 		<script src="validator.js"></script>
-		<link href="utseende_search_bitar.css" rel="stylesheet" type="text/css"/>
-		<link href="utseende.css" rel="stylesheet" type="text/css"/>
-		<link href="animation.css" rel="stylesheet" type="text/css"/>
 	</head>
 	<body onload="tabColor()">
 		<div class="colContainer">
