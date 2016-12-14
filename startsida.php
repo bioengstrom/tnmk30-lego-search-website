@@ -1,6 +1,3 @@
-<?php
-
-?>
 <!doctype html>
 <html>
 	<head>
@@ -39,7 +36,4 @@
 					</form>
 				</div>
 			</div>
-
-
-
 <!--- NOT END OF FILE. NEED TO INCLUDE --->
