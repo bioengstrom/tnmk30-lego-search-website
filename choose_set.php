@@ -19,7 +19,7 @@
 								ORDER BY Setname $limit_results"); //Get all sets that contain the keyword
 
 		$link = "http://weber.itn.liu.se/~stegu76/img.bricklink.com"; //Link to all images
-		
+
 		echo "<p id ='amountParts'><span>These sets contain the keyword: </span>".$keyword."</p>";
 		echo "<div id='allParts'>";
 
@@ -34,10 +34,10 @@
 
 			if($imageinfo['has_jpg']) { // Use JPG if it exists
 				$filename = "$link/S/$SetID.jpg";
-			} 
+			}
 			else if($imageinfo['has_gif']) { // Use GIF if JPG is unavailable
 				$filename = "$link/S/$SetID.gif";
-			} 
+			}
 			else { // If neither format is available, insert a placeholder image
 				$filename = "error.png";
 			}
@@ -46,12 +46,13 @@
 			echo "<div>";
 			echo "<img src='".$filename."'>";
 			echo "<span>
-				 <p class='legoSetTitle'>".$Setname."</p>
-				 <p class='legoSetId'>id: ".$SetID."</p>
-				 </span>";
-			echo "</div></a>";
+              <p class='legoSetTitle'>".$Setname."</p>
+              <p class='legoSetId'><span>id: </span>".$SetID."</p>
+            </span>";
+      echo "</div>";
+      echo "</a>";
 		}
-		
+
 		echo "</div>"; //close allParts div
 		echo "</div>"; // close itemContainer div
 		mysqli_close($connection);
