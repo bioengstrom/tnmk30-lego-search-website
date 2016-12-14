@@ -1,108 +1,92 @@
-	<?php include("startsida.php"); ?>
+<?php include("startsida.php"); ?>
 
-		<div class ="itemContainer">
+	<div class ="itemContainer">
 
 		<?php
 			$connection = mysqli_connect("mysql.itn.liu.se", "lego", "", "lego");
 
-			if (!$connection) {
+			if (!$connection) { //If unable to connect display error message
 				die('MySQL connection error');
 			}
 
-			$keyword = mysqli_real_escape_string($connection, $_POST["keyword"]);
+			$SetID = $_GET['SetID']; //Get the SetID from the webpage link created by choose_set.php
 
 			$result = mysqli_query($connection, "SELECT parts.Partname, parts.PartID, inventory.ItemID, colors.ColorID,
 									colors.Colorname, inventory.Quantity, sets.Setname, sets.SetID FROM sets, inventory,
-									colors, parts WHERE (sets.SetID LIKE '%$keyword%' OR sets.Setname LIKE '%$keyword%')
+									colors, parts WHERE sets.SetID='$SetID'
 									AND sets.SetID=inventory.SetID AND inventory.ItemID=parts.PartID AND
-									inventory.ColorID=colors.ColorID ORDER BY Partname");
+									inventory.ColorID=colors.ColorID ORDER BY Partname"); //Get wanted information about the set
 
-			$link = "http://weber.itn.liu.se/~stegu76/img.bricklink.com";
+			$link = "http://weber.itn.liu.se/~stegu76/img.bricklink.com"; //Link to all images
 
-			$setsearch = mysqli_query($connection, "SELECT SetID, Setname FROM sets WHERE (SetID LIKE '%$keyword%' OR Setname LIKE '%$keyword%')");
+			$setsearch = mysqli_query($connection, "SELECT SetID, Setname FROM sets WHERE SetID='$SetID'"); //Get information about the set
 
-			while($setinfo = mysqli_fetch_array($setsearch) AND $keyword != NULL) {
+			while($setinfo = mysqli_fetch_array($setsearch)) {
 
-				$SetID = $setinfo['SetID'];
-
-				print("<div id='legoItem'>");
 				$imagesearch = mysqli_query($connection, "SELECT * FROM images WHERE ItemID='$SetID' AND ItemTypeID = 'S'");
-			// By design, the query above should return exactly one row.
+
 				$imageinfo = mysqli_fetch_array($imagesearch);
-					if($imageinfo['has_largejpg']) { // Use JPG if it exists
-							$filename = "$link/SL/$SetID.jpg";
-					} else if($imageinfo['has_largegif']) { // Use GIF if JPG is unavailable
-							$filename = "$link/SL/$SetID.gif";
-					} else { // If neither format is available, insert a placeholder image
-							$filename = "error.png";
-					}
-					echo "<img class='setImg' src='".$filename."'></img>";
 
-					echo "<div class='infoText'><p class='legoName'>".$setinfo["Setname"]."</p>
-					 			<p class='legoID'>ID-number: ".$setinfo["SetID"]."</p></div>";
-				 		print ("</div>");
-					}
+				if($imageinfo['has_largejpg']) { // Use JPG if it exists
+						$filename = "$link/SL/$SetID.jpg";
+				} else if($imageinfo['has_largegif']) { // Use GIF if JPG is unavailable
+						$filename = "$link/SL/$SetID.gif";
+				} else { // If neither format is available, insert a placeholder image
+						$filename = "error.png";
+				}
+				/*PRINT SET OUTPUT*/
+				echo "<div id='legoItem'>";
+				echo "<span class='legoItemImgContainer'>";
+				echo "<img src='".$filename."'></img>";
+				echo "</span>";
 
-			print("<p id ='amountParts'>This item consists of:</p>
+				echo "<div class='infoText'><p class='legoName'>".$setinfo["Setname"]."</p>
+				 			<p class='legoID'><span>ID-number: </span>".$setinfo["SetID"]."</p></div>";
+			 	echo "</div>";
+				}
+
+			print("<p id ='setParts'>This item consists of:</p>
 			<div id='allParts'>");
 
-			while($row = mysqli_fetch_array($result) AND $keyword != NULL)
+			while($row = mysqli_fetch_array($result)) //Display all parts included in the set
 			{
-					print ("<div class='legoPart'>");
 
-					$ItemID = $row['ItemID'];
-					$ColorID = $row['ColorID'];
-					$imagesearch = mysqli_query($connection, "SELECT * FROM images WHERE ItemTypeID='P' AND ItemID='$ItemID' AND ColorID=$ColorID");
-			    // By design, the query above should return exactly one row.
+				$PartID = $row['PartID'];
+				$ColorID = $row['ColorID'];
+
+				$imagesearch = mysqli_query($connection, "SELECT * FROM images WHERE ItemTypeID='P' AND ItemID='$PartID'
+											AND ColorID=$ColorID");
+
 			    $imageinfo = mysqli_fetch_array($imagesearch);
-				    if($imageinfo['has_jpg']) { // Use JPG if it exists
-				 	 			$filename = "$link/P/$ColorID/$ItemID.jpg";
-				    } else if($imageinfo['has_gif']) { // Use GIF if JPG is unavailable
-				 	 			$filename = "$link/P/$ColorID/$ItemID.gif";
-				    } else { // If neither format is available, insert a placeholder image
-				 	 			$filename = "error.png";
-				    }
 
-				  echo "<div class='imgContainer'><img src='".$filename."'></div";
-					echo "<div class='infoText'><p>", $row["Partname"], "</p><p>ID-number: ", $row["PartID"], "</p><p>Color: ",
-					$row["Colorname"], "</p><p>Quantity: ", $row["Quantity"], "</p></div>";
-					print ("</div>");
+				if($imageinfo['has_jpg']) { // Use JPG if it exists
+				 	$filename = "$link/P/$ColorID/$PartID.jpg";
+				}
+				else if($imageinfo['has_gif']) { // Use GIF if JPG is unavailable
+				 	$filename = "$link/P/$ColorID/$PartID.gif";
+				}
+				else { // If neither format is available, insert a placeholder image
+				 	$filename = "error.png";
+				}
+
+				/*PRINT SET PARTS OUTPUT*/
+				echo "<a class='legoSet' href='search_bit.php?PartID=".$PartID."&ColorID=".$ColorID."'>";
+				echo "<div>";
+				echo "<img src='".$filename."'>";
+				echo "<span>";
+				echo "<p class='legoSetTitle'>".$row["Partname"]."</p>";
+				echo "<p class='legoSetId'><span>id: </span>".$row["PartID"]."</p>";
+				echo "<p><span>Color: </span>".$row["Colorname"]."</p>";
+				echo "<p><span>Quantity: </span>".$row["Quantity"]."</p>";
+				echo "</span>";
+				echo "</div>";
+				echo "</a>";
 			}
 
-			print ("</div>");
+			echo "</div>";
 			mysqli_close($connection);
 		?>
-		<div id="allParts">
-			<div class="legoPart">
-				<div class="imgContainer">
-					<img class="partImg" src="http://1.bp.blogspot.com/-23j6MHmmuto/T3qT9y4oItI/AAAAAAAAALc/-UYN6YSdZLM/s1600/Lego-Brick-4x2.jpg">
-				</div>
-				<div class="infoText">
-					<p class="legoPartTitle">Antenna whip flag lorem ipsum dolor</p>
-					<p class="legoPartId"><span>ID:</span>124324</p>
-					<p class="legoPartColor"><span>Color: </span>trans-light blue</p>
-					<p><span>Quantity: </span> 23</p>
-				</div>
-			</div>
-			<div class="legoPart">
-				<img src="http://1.bp.blogspot.com/-23j6MHmmuto/T3qT9y4oItI/AAAAAAAAALc/-UYN6YSdZLM/s1600/Lego-Brick-4x2.jpg">
-				<div class="infoText">
-					<p>Antenna whip flag lorem ipsum dolor</p>
-					<p>124324</p>
-					<p>trans-light blue</p>
-					<p>Quantity: 23</p>
-				</div>
-			</div>
-			<div class="legoPart">
-				<img src="http://1.bp.blogspot.com/-23j6MHmmuto/T3qT9y4oItI/AAAAAAAAALc/-UYN6YSdZLM/s1600/Lego-Brick-4x2.jpg">
-				<div class="infoText">
-					<p>Antenna whip flag lorem ipsum dolor</p>
-					<p>124324</p>
-					<p>trans-light blue</p>
-					<p>Quantity: 23</p>
-				</div>
-			</div>
-		</div>
+
 	</div>
-	</body>
+</body>
 </html>

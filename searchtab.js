@@ -1,5 +1,6 @@
-var lastClicked = "";
+
 function tabColor() {
+  var lastClicked = "";
   var lastClicked = sessionStorage.getItem("lastClicked");
     console.log("mans" + lastClicked);
   if (lastClicked == "bit") {
