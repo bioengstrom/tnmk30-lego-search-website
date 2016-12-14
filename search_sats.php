@@ -45,7 +45,7 @@
 				    }
 
 
-				  echo "<img class='partImg' src='".$filename."'></img>";
+				  echo "<div class='imgContainer'><img src='".$filename."'></div";
 					echo "<div class='infoText'><p>", $row["Partname"], "</p><p class='legoPartId'>", $row["PartID"], "</p><p>",
 					$row["Colorname"], "</p><p>Quantity: ", $row["Quantity"], "</p></div>";
 					print ("</div>");
