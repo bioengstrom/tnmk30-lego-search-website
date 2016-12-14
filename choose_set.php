@@ -1,6 +1,6 @@
 <?php include("startsida.php"); ?>
 
-  <div>
+  <div id="itemContainer">
 
     <?php
       $connection = mysqli_connect("mysql.itn.liu.se", "lego", "", "lego");
@@ -17,11 +17,11 @@
       $link = "http://weber.itn.liu.se/~stegu76/img.bricklink.com";
 
       print("<p id ='amountParts'>These sets contain the keyword: ".$keyword."</p>
-      <div id='setList'>");
+            <div id='allParts'>");
 
       while($row = mysqli_fetch_array($result) AND $keyword != NULL)
 			{
-					print ("<div class='Set'>");
+					print ("<div class='legoPart'>");
 
 					$ItemID = $row['SetID'];
 
@@ -36,17 +36,14 @@
 				 	 			$filename = "error.png";
 				    }
 
-				  echo "<img class='partImg' src='".$filename."'></img>";
+				  echo "<div class='imgContainer'><img src='".$filename."'></div>";
 
-					echo "<div class='infoText'><p>", $row["Setname"], "</p><p>ID-number: ", $row["SetID"], "</p>";
-					print ("</div>");
+					echo "<div class='infoText'><p>", $row["Setname"], "</p><p>ID-number: ", $row["SetID"], "</p></div>";
+          print ("</div>");
 			}
-
       print ("</div>");
       mysqli_close($connection);
     ?>
-
-
 
   </div>
   </body>
