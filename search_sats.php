@@ -36,6 +36,7 @@
 				else { // If neither format is available, insert a placeholder image
 					$filename = "error.png";
 				}
+				
 				echo "<div id='legoItem'>";
 				echo "<img class='setImg' src='".$filename."'></img>";
 
@@ -51,26 +52,26 @@
 			{
 				print ("<div class='legoPart'>");
 
-				$ItemID = $row['ItemID'];
+				$PartID = $row['PartID'];
 				$ColorID = $row['ColorID'];
 				
-				$imagesearch = mysqli_query($connection, "SELECT * FROM images WHERE ItemTypeID='P' AND ItemID='$ItemID' 
+				$imagesearch = mysqli_query($connection, "SELECT * FROM images WHERE ItemTypeID='P' AND ItemID='$PartID' 
 											AND ColorID=$ColorID");
 											
 			    $imageinfo = mysqli_fetch_array($imagesearch);
 				
 				if($imageinfo['has_jpg']) { // Use JPG if it exists
-				 	$filename = "$link/P/$ColorID/$ItemID.jpg";
+				 	$filename = "$link/P/$ColorID/$PartID.jpg";
 				} 
 				else if($imageinfo['has_gif']) { // Use GIF if JPG is unavailable
-				 	$filename = "$link/P/$ColorID/$ItemID.gif";
+				 	$filename = "$link/P/$ColorID/$PartID.gif";
 				} 
 				else { // If neither format is available, insert a placeholder image
 				 	$filename = "error.png";
 				}
 				
 				/*PRINT SET PARTS OUTPUT*/
-				echo "<a class='legoPart' href='#'>";
+				echo "<a class='legoPart' href='search_bit.php?PartID=".$PartID."&ColorID=".$ColorID."'>";
 				echo "<div>";
 				echo "<img src='".$filename."'>";
 				echo "<span>";

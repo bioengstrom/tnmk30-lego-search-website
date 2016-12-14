@@ -24,7 +24,7 @@
 
 			while($setinfo = mysqli_fetch_array($setsearch)) //Display image and information about the chosen set
 			{
-				print("<div id='legoItem'>");
+				echo "<div id='legoItem'>";
 				
 				$imagesearch = mysqli_query($connection, "SELECT * FROM images WHERE ItemID='$PartID' AND ColorID='$ColorID' 
 											ItemTypeID='P'");
@@ -45,11 +45,10 @@
 				echo "<div class='infoText'><p class='legoName'>".$setinfo["Partname"]."</p>
 					  <p class='legoID'>ID-number: ".$PartID."</p><p>Color: ".$setinfo["Colorname"]."</div>";
 					  
-				print ("</div>");
+				echo"</div>";
 			}
 			
-			print("<p id ='amountSets'>This item is part of the following sets:</p>
-				  <div id='allSets'>");
+			echo "<p id ='amountSets'>This item is part of the following sets:</p><div id='allSets'>";
 			
 			while($row = mysqli_fetch_array($result)) //Display all parts included in the set
 			{
@@ -70,7 +69,8 @@
 				else { // If neither format is available, insert a placeholder image
 				 	$filename = "error.png";
 				}
-
+				
+				echo "<a class='legoPart' href='search_sats.php?SetID=".$SetID."'>";
 				echo "<div class='imgContainer'><img src='".$filename."'></div";
 				
 				echo "<div class='infoText'><p>", $row["Setname"], "</p><p>ID-number: ", $row["SetID"], 
