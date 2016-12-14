@@ -1,19 +1,22 @@
 .itemContainer {
 	width: 70%;
 	font-family: 'open sans';
-	float: left;
 }
 #amountParts{
 	font-size: 40px;
 	margin: 20px 0 5px 0;
+	text-align: center;
 }
-
+#amountParts span{
+	font-size: 30px;
+}
 #allParts {
 	display: flex;
 	flex-flow: row wrap;
 	justify-content: space-between;
 	align-content: space-between;
 	max-width: 70%;
+	margin: auto;
 }
 .legoPart {
 	padding: 0px 0;
@@ -47,6 +50,11 @@
 .legoPartTitle {
 	font-size: 20px;
 	margin: 10px 0 5px 0;
+	text-decoration: none;
+	color: #1d1d1d;
+}
+.legoPartTitle:hover{
+	text
 }
 .legoPartId{
 	font-size: 12px;
@@ -54,12 +62,50 @@
 	color: #565656;
 }
 
-img {
-	max-width: 100%;
-	height: auto;
+
+
+.legoSet{
+	display: block;
+	width: 100%;
+	margin: 10px 0;
+	padding: 0;
+	text-decoration: none;
+
+	background-color: white;
+	border: 1px solid #eaeaea;
+	border-bottom: 3px solid #eaeaea;
+}
+.legoSet:hover{
+	border-bottom: 3px solid #1A237E;
+}
+.legoSet p{
+	color: #1d1d1d;
+}
+.legoSet div{
+	height: 100%;
+	display: flex;
+	flex-flow: row wrap;
+	align-items: center;
+}
+.legoSet span{
+	padding:  5px 0;
+}
+.legoSet div img{
+	margin-right: 20px;
 	background-color: #3F51B5;
 }
-
+.legoSetTitle{
+	font-size: 18px;
+	margin: 0;
+	padding: 0;
+}
+.legoSetId{
+	margin: 5px 0 0 0;
+	padding: 0;
+}
+.legoSetId span{
+	font-weight: 700;
+}
 .infoText {
 	margin: 0px 15px;
 
@@ -68,14 +114,6 @@ img {
 #allSets {
 	display: flex;
 	flex-flow: row wrap;
-}
-
-.legoSet {
-	padding: 10px 0;
-	border-top: 2px solid grey;
-	display: flex;
-	width: 50%;
-
 }
 
 #legoItem {
