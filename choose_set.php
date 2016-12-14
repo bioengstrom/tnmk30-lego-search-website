@@ -42,10 +42,10 @@
 			echo "<img src='".$filename."'>";
 			echo "<span>
               <p class='legoSetTitle'>".$Setname."</p>
-              <p class='legoSetId'>id: ".$SetID."</p>
+              <p class='legoSetId'><span>id: </span>".$SetID."</p>
             </span>";
       echo "</div>";
-      echo "</a>"
+      echo "</a>";
 
 
 		}
