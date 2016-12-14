@@ -9,7 +9,7 @@
 		<script src="searchtab.js"></script>
 		<script src="validator.js"></script>
 	</head>
-	<body onload="tabColor()">
+	<body onload="tabColor(), toggleButton()">
 		<div class="colContainer">
 			<div id="startContainerBG">
 			</div>
@@ -26,8 +26,8 @@
 					</div>
 					<form action="search_bit.php" method="post">
 						<h5 class="alertWarning">Search value must be longer than 3 characters</h5>
-						<input type="text" placeholder="Type in a Piece Name to start Finding" name="keyword" id="keyword" onClick="runFunction()">
-						<input type="submit" value="search" name="search">
+						<input type="text" placeholder="Type in a Piece Name to start Finding" name="keyword" id="keyword" onkeyup="toggleButton(), checkLength()">
+						<input type="submit" value="search" name="search" id="searchButton">
 						<p>
 							Specify your search after attributes like color or size
 							<span>e.g corner piece ref 2x2</span>
