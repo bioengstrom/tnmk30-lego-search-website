@@ -7,6 +7,8 @@ function tabColor() {
   }
   else if (lastClicked == "sats") {
     focus ("sats");
+  } else {
+    focus("bit");
   }
 }
 
