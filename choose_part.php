@@ -1,0 +1,57 @@
+<?php include("startsida.php"); ?>
+
+  <div id="itemContainer">
+
+    <?php
+		$connection = mysqli_connect("mysql.itn.liu.se", "lego", "", "lego");
+
+		if (!$connection) {
+			die('MySQL connection error');
+		}
+
+		$keyword = mysqli_real_escape_string($connection, $_POST["keyword"]);
+
+		$result = mysqli_query($connection, "SELECT DISTINCT parts.Partname, parts.PartID, inventory.ColorID, colors.Colorname FROM parts, inventory, colors 
+								WHERE (PartID LIKE '%$keyword%' OR Partname LIKE '%$keyword%') AND parts.PartID=inventory.ItemID
+								AND inventory.ColorID=colors.ColorID ORDER BY Partname");
+	
+		$link = "http://weber.itn.liu.se/~stegu76/img.bricklink.com";
+
+		print("<p id ='amountParts'>These parts contain the keyword: ".$keyword."</p>
+				<div id='allParts'>");
+
+		while($row = mysqli_fetch_array($result) AND $keyword != NULL){
+
+			print ("<div class='legoPart'>");
+
+			$PartID = $row['PartID'];
+			$Partname = $row['Partname'];
+			$ColorID = $row['ColorID'];
+			$Colorname= $row['Colorname'];
+
+			$imagesearch = mysqli_query($connection, "SELECT * FROM images WHERE ItemTypeID='P' AND ItemID='$PartID' AND ColorID='$ColorID'");
+			    
+			$imageinfo = mysqli_fetch_array($imagesearch);
+			
+			if($imageinfo['has_jpg']) { // Use JPG if it exists
+				$filename = "$link/P/$ColorID/$PartID.jpg";
+			} else if($imageinfo['has_gif']) { // Use GIF if JPG is unavailable
+				$filename = "$link/P/$ColorID/$PartID.gif";
+			} else { // If neither format is available, insert a placeholder image
+				 $filename = "error.png";
+			}
+
+			echo "<div class='imgContainer'><img src='".$filename."'></div>";
+
+			echo "<div class='infoText'><p><a href='search_bit.php?PartID=".$PartID."&ColorID=".$ColorID."'>
+			".$Partname."</a></p><p>ID-number: ".$PartID."</p><p>Color: ".$Colorname."</p></div>";
+			print ("</div>");
+		}
+		
+		print ("</div>");
+		mysqli_close($connection);
+    ?>
+
+  </div>
+  </body>
+</html>
