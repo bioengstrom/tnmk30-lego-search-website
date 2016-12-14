@@ -113,10 +113,6 @@
 .legoSet:hover{
 	border-bottom: 3px solid #1A237E;
 }
-.legoSet p{
-	color: #1d1d1d;
-	margin: 5px 0 0 0;
-}
 .legoSet div{
 	height: 100%;
 	display: flex;
@@ -128,16 +124,25 @@
 }
 .legoSet div img{
 	margin-right: 20px;
-	background-color: #3F51B5;
 }
 .legoSetTitle{
 	font-size: 18px;
 	margin: 0;
 	padding: 0;
 }
+.legoSet p{
+	color: #1d1d1d;
+	margin: 5px 0 0 0;
+}
 .legoSetId{
 	margin: 5px 0 0 0;
 	padding: 0;
+	font-size: 14px;
+}
+.legoSetColor{
+	margin: 5px 0 0 0;
+	padding: 0;
+	font-size: 14px;
 }
 .legoSet p span{
 	font-weight: 700;

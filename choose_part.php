@@ -11,10 +11,10 @@
 
 		$keyword = mysqli_real_escape_string($connection, $_POST["keyword"]);
 
-		$result = mysqli_query($connection, "SELECT DISTINCT parts.Partname, parts.PartID, inventory.ColorID, colors.Colorname FROM parts, inventory, colors 
+		$result = mysqli_query($connection, "SELECT DISTINCT parts.Partname, parts.PartID, inventory.ColorID, colors.Colorname FROM parts, inventory, colors
 								WHERE (PartID LIKE '%$keyword%' OR Partname LIKE '%$keyword%') AND parts.PartID=inventory.ItemID
 								AND inventory.ColorID=colors.ColorID ORDER BY Partname"); //Get all parts that contain the keyword
-	
+
 		$link = "http://weber.itn.liu.se/~stegu76/img.bricklink.com"; //Link to all images
 
 		print("<p id ='amountParts'>These parts contain the keyword: ".$keyword."</p>
@@ -22,36 +22,39 @@
 
 		while($row = mysqli_fetch_array($result) AND $keyword != NULL){ //Display all parts containing the keyword
 
-			print ("<div class='legoPart'>");
-
 			$PartID = $row['PartID'];
 			$Partname = $row['Partname'];
 			$ColorID = $row['ColorID'];
 			$Colorname= $row['Colorname'];
 
 			$imagesearch = mysqli_query($connection, "SELECT * FROM images WHERE ItemTypeID='P' AND ItemID='$PartID' AND ColorID='$ColorID'");
-			    
+
 			$imageinfo = mysqli_fetch_array($imagesearch);
-			
+
 			if($imageinfo['has_jpg']) { // Use JPG if it exists
 				$filename = "$link/P/$ColorID/$PartID.jpg";
-			} 
+			}
 			else if($imageinfo['has_gif']) { // Use GIF if JPG is unavailable
 				$filename = "$link/P/$ColorID/$PartID.gif";
-			} 
+			}
 			else { // If neither format is available, insert a placeholder image
 				 $filename = "error.png";
 			}
 
-			echo "<div class='imgContainer'><img src='".$filename."'></div>";
-
-			echo "<div class='infoText'><p><a href='search_bit.php?PartID=".$PartID."&ColorID=".$ColorID."'>
-				 ".$Partname."</a></p><p>ID-number: ".$PartID."</p><p>Color: ".$Colorname."</p></div>";
-			
-			print ("</div>");
+      echo "<a class='legoSet' href='search_bit.php?PartID=".$PartID."&ColorID=".$ColorID."'>"; //Link to the displayed set
+			echo "<div>";
+			echo "<img src='".$filename."'>";
+			echo "<span>
+              <p class='legoSetTitle'>".$Partname."</p>
+              <p class='legoSetId'><span>id: </span>".$PartID."</p>
+              <p class='legoSetColor'><span>color: </span>".$ColorID."</p>
+            </span>";
+      echo "</div>";
+      echo "</a>";
 		}
-		
-		print ("</div>");
+
+		echo "</div>"; //close allParts div
+		echo "</div>"; // close itemContainer div
 		mysqli_close($connection);
     ?>
 

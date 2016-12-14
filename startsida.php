@@ -30,7 +30,7 @@
 						<input type="submit" value="search" name="search">
 						<p>
 							Specify your search after attributes like color or size
-							<span>e.g corner piece ref 2x2</span>
+							<span>e.g corner piece 2 x 2</span>
 						</p>
 					</form>
 				</div>
