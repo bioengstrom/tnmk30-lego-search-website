@@ -1,6 +1,3 @@
-<?php
-
-?>
 <!doctype html>
 <html>
 	<head>
@@ -10,6 +7,8 @@
 		<script src="searchtab.js"></script>
 		<script src="validator.js"></script>
 		<link href="utseende_search_bitar.css" rel="stylesheet" type="text/css"/>
+		<link href="utseende.css" rel="stylesheet" type="text/css"/>
+		<link href="animation.css" rel="stylesheet" type="text/css"/>
 	</head>
 	<body onload="tabColor()">
 		<div class="colContainer">
@@ -37,7 +36,4 @@
 					</form>
 				</div>
 			</div>
-
-
-
 <!--- NOT END OF FILE. NEED TO INCLUDE --->
