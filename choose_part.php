@@ -8,7 +8,11 @@
 		if (!$connection) { //If unable to connect display error message
 			die('MySQL connection error');
 		}
-
+		
+		if (empty($_GET['page'])){
+			$limit_results = 'LIMIT 0,20';
+		}
+		
 		$keyword = mysqli_real_escape_string($connection, $_POST["keyword"]);
 
 		$result = mysqli_query($connection, "SELECT DISTINCT parts.Partname, parts.PartID, inventory.ColorID, colors.Colorname FROM parts, inventory, colors
@@ -19,7 +23,7 @@
 
 		print("<p id ='amountParts'>These parts contain the keyword: ".$keyword."</p>
 				<div id='allParts'>");
-
+		
 		while($row = mysqli_fetch_array($result) AND $keyword != NULL){ //Display all parts containing the keyword
 
 			$PartID = $row['PartID'];
@@ -52,9 +56,19 @@
       echo "</div>";
       echo "</a>";
 		}
+<<<<<<< HEAD
 
 		echo "</div>"; //close allParts div
 		echo "</div>"; // close itemContainer div
+=======
+		
+		$split_array = array_chunk($row, 20, true);
+		$pages = count($split_array);
+		
+		echo $pages;
+		
+		print ("</div>");
+>>>>>>> 3d5118355ea1c6cc04093a8190241d854c597237
 		mysqli_close($connection);
     ?>
 

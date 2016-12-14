@@ -8,11 +8,15 @@
 		if (!$connection) { //If unable to connect display error message
 			die('MySQL connection error');
 		}
-
+		
+		if (empty($_GET['page'])){
+			$limit_results = 'LIMIT 0,20';
+		}
+		
 		$keyword = mysqli_real_escape_string($connection, $_POST["keyword"]); //The users search-word
 
 		$result = mysqli_query($connection, "SELECT Setname, SetID FROM sets WHERE (sets.SetID LIKE '%$keyword%' OR sets.Setname LIKE '%$keyword%')
-								ORDER BY Setname"); //Get all sets that contain the keyword
+								ORDER BY Setname $limit_results"); //Get all sets that contain the keyword
 
 		$link = "http://weber.itn.liu.se/~stegu76/img.bricklink.com"; //Link to all images
 
