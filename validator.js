@@ -1,23 +1,22 @@
 //runs the script so that it updates without requiring reload, (aka AJAX?)
 
 function runFunction() {
-  setTimeout(startInterval, 3000);
+  setTimeout(intervalController, 3000);
 }
-function startInterval() {
-  var checkInterval = setInterval(checkLength(checkInterval), 1000);
-}
-function stopInterval(checkInterval) {
-  console.log("interval stopped");
-  clearInterval(checkInterval);
+
+function intervalController(action) {
+  console.log("intervalController is running");
+  if (action == "stop") {
+    clearInterval(checkInterval);
+    console.log("interval stopped");
+  } else {
+      var checkInterval = setInterval(checkLength, 1000);
+  }
 }
 
 //checks length of string entered in searchbar.
-function checkLength(checkInterval) {
+function checkLength() {
   var keyword = document.getElementById("keyword");
-  console.log(keyword.onfocusout);
-  if(keyword.onfocusout) {
-    stopInterval(checkInterval);
-  }
   //keyword.onfocusout = stopInterval(checkInterval);
   if(keyword.value.length >= 3 || keyword.value.length == 0){
     display("block");

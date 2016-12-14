@@ -31,7 +31,6 @@ a,p,h1,h2,h3,h4,h5,input {
   align-items: center;
 
   position: absolute;
-  left: 0;
   top: 0;
   z-index: -1;
 
@@ -91,10 +90,10 @@ a,p,h1,h2,h3,h4,h5,input {
   background-color: #1A237E;
 }
 #searchSats{
-  background-color: #1A237E;
+  background-color: #1A237E; /*selected tab gets set by js. Thus both tabs are set to unseclected color here, in css*/
 }
 #searchBit{
-  background-color: #3F51B5;
+  background-color: #1A237E; /*selected tab gets set by js. Thus both tabs are set to unseclected color here, in css*/
 }
 #searchTabContainer div h3{
   font-family: 'open sans';
