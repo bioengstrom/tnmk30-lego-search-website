@@ -3,16 +3,60 @@
 	font-family: 'open sans';
 	float: left;
 }
+#amountParts{
+	font-size: 40px;
+	margin: 20px 0 5px 0;
+}
 
-#legoItem {
+#allParts {
 	display: flex;
-	padding-top: 15px;
+	flex-flow: row wrap;
+	justify-content: space-between;
+	align-content: space-between;
+}
+.legoPart {
+	padding: 0px 0;
+	width: 40%;
+	min-width: 500px;
+	margin: 5px 0;
+	display: flex;
+	align-items: center;
 
+	background-color: white;
+	border: 1px solid #eaeaea;
+}
+.imgContainer{
+	background-color: #3F51B5;
+	height: 100%;
+	text-align: center;
+}
+.imgContainer img{
+	margin: auto;
+	height: auto;
+	max-width: 100%;
+}
+.legoPart p{
+	margin: 0;
+}
+.legoPart p span{
+	font-size: 15px;
+	font-weight: 700;
+}
+
+.legoPartTitle {
+	font-size: 20px;
+	margin: 10px 0 5px 0;
+}
+.legoPartId{
+	font-size: 12px;
+	margin: 0;
+	color: #565656;
 }
 
 img {
 	max-width: 100%;
 	height: auto;
+	background-color: #3F51B5;
 }
 
 .infoText {
@@ -33,20 +77,8 @@ img {
 
 }
 
-#allParts {
+#legoItem {
 	display: flex;
-	flex-flow: row wrap;
-}
+	padding-top: 15px;
 
-.legoPart {
-	padding: 10px 0;
-	border-top: 2px solid grey;
-	display: flex;
-	width: 50%;
-}
-
-.partImg {
-	max-height: 100px;
-	max-width: 130px;
-	float: left;
 }

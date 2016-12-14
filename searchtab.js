@@ -30,13 +30,13 @@ function focus(type) {
     document.getElementById('searchSats').style.backgroundColor = "#1A237E";
     document.getElementById('searchBit').style.backgroundColor = "#3F51B5";
 
-    document.getElementsByTagName('form')[0].action = "search_bit.php";
+    document.getElementsByTagName('form')[0].action = "choose_part.php";
   }
   else if (type == "sats") {
     document.getElementById('searchBit').style.backgroundColor = "#1A237E";
     document.getElementById('searchSats').style.backgroundColor = "#3F51B5";
 
-    document.getElementsByTagName('form')[0].action = "search_sats.php";
+    document.getElementsByTagName('form')[0].action = "choose_set.php";
   }
 }
 

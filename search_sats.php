@@ -46,7 +46,7 @@
 
 
 				  echo "<img class='partImg' src='".$filename."'></img>";
-					echo "<div class='infoText'><p>", $row["Partname"], "</p><p>", $row["PartID"], "</p><p>",
+					echo "<div class='infoText'><p>", $row["Partname"], "</p><p class='legoPartId'>", $row["PartID"], "</p><p>",
 					$row["Colorname"], "</p><p>Quantity: ", $row["Quantity"], "</p></div>";
 					print ("</div>");
 
@@ -56,29 +56,38 @@
 			mysqli_close($connection);
 
 		?>
+		<div id="allParts">
+			<div class="legoPart">
+				<div class="imgContainer">
+					<img class="partImg" src="http://1.bp.blogspot.com/-23j6MHmmuto/T3qT9y4oItI/AAAAAAAAALc/-UYN6YSdZLM/s1600/Lego-Brick-4x2.jpg">
+				</div>
 
-			<div id="legoItem">
-				<!-- Här ska bitens bild in, bredvid ska namnet på biten finnas, id-nummer
-				och en drop-down meny med färgalternativ som ska ändra färg på bilden vid
-				tryckning.-->
-				<img src="http://1.bp.blogspot.com/-23j6MHmmuto/T3qT9y4oItI/AAAAAAAAALc/-UYN6YSdZLM/s1600/Lego-Brick-4x2.jpg"></img>
 				<div class="infoText">
-					<p class="legoName">Namn</p>
-					<p class="legoID">ID</p>
+					<p class="legoPartTitle">Antenna whip flag lorem ipsum dolor</p>
+					<p class="legoPartId"><span>ID:</span>124324</p>
+					<p class="legoPartColor"><span>Color: </span>trans-light blue</p>
+					<p><span>Quantity: </span> 23</p>
 				</div>
 			</div>
-			<p id ="amountParts">This item consists of:</p>
-			<div id="allParts">
-				<div class="legoPart">
-					<img src="http://1.bp.blogspot.com/-23j6MHmmuto/T3qT9y4oItI/AAAAAAAAALc/-UYN6YSdZLM/s1600/Lego-Brick-4x2.jpg"></img>
-					<div class="infoText">
-						<p>Partname</p>
-						<p>Id-number</p>
-						<p>Antal bitar</p>
-					</div>
+			<div class="legoPart">
+				<img src="http://1.bp.blogspot.com/-23j6MHmmuto/T3qT9y4oItI/AAAAAAAAALc/-UYN6YSdZLM/s1600/Lego-Brick-4x2.jpg">
+				<div class="infoText">
+					<p>Antenna whip flag lorem ipsum dolor</p>
+					<p>124324</p>
+					<p>trans-light blue</p>
+					<p>Quantity: 23</p>
 				</div>
-
 			</div>
+			<div class="legoPart">
+				<img src="http://1.bp.blogspot.com/-23j6MHmmuto/T3qT9y4oItI/AAAAAAAAALc/-UYN6YSdZLM/s1600/Lego-Brick-4x2.jpg">
+				<div class="infoText">
+					<p>Antenna whip flag lorem ipsum dolor</p>
+					<p>124324</p>
+					<p>trans-light blue</p>
+					<p>Quantity: 23</p>
+				</div>
+			</div>
+		</div>
 
 	</div>
 
