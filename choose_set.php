@@ -8,11 +8,11 @@
 		if (!$connection) { //If unable to connect display error message
 			die('MySQL connection error');
 		}
-		
+
 		if (empty($_GET['page'])){
 			$limit_results = 'LIMIT 0,20';
 		}
-		
+
 		$keyword = mysqli_real_escape_string($connection, $_POST["keyword"]); //The users search-word
 
 		$result = mysqli_query($connection, "SELECT Setname, SetID FROM sets WHERE (sets.SetID LIKE '%$keyword%' OR sets.Setname LIKE '%$keyword%')
@@ -42,12 +42,12 @@
 				$filename = "error.png";
 			}
 
-			echo "<a class='legoSet' href='search_sats.php?SetID=".$SetID."'>"; //Link to the displayed set
+			echo "<a class='legoListItem' href='search_sats.php?SetID=".$SetID."'>"; //Link to the displayed set
 			echo "<div>";
 			echo "<img src='".$filename."'>";
 			echo "<span>
-              <p class='legoSetTitle'>".$Setname."</p>
-              <p class='legoSetId'><span>id: </span>".$SetID."</p>
+              <p class='legoListItemTitle'>".$Setname."</p>
+              <p class='legoListItemId'><span>id: </span>".$SetID."</p>
             </span>";
       echo "</div>";
       echo "</a>";

@@ -54,7 +54,7 @@
 			 	echo "</div>";
 			}
 
-			echo "<p id ='setParts'>This item is part of the following sets:</p><div id='allParts'>";
+			echo "<p id ='ListItemParts'>This item is part of the following sets:</p><div id='allParts'>";
 
 			while($row = mysqli_fetch_array($result)) //Display all parts included in the set
 			{
@@ -75,12 +75,12 @@
 				 	$filename = "error.png";
 				}
 				/*PRINT ITEM SETS OUTPUT*/
-				echo "<a class='legoSet' href='search_sats.php?SetID=".$SetID."'>";
+				echo "<a class='legoListItem' href='search_sats.php?SetID=".$SetID."'>";
 				echo "<div>";
 				echo "<img src='".$filename."'>";
 				echo "<span>";
-				echo "<p class='legoSetTitle'>".$row["Setname"]."</p>";
-				echo "<p class='legoSetId'><span>id: </span>".$row["SetID"]."</p>";
+				echo "<p class='legoListItemTitle'>".$row["Setname"]."</p>";
+				echo "<p class='legoListItemId'><span>id: </span>".$row["SetID"]."</p>";
 				echo "<p><span>Quantity: </span>".$row["Quantity"]."</p>";
 				echo "</span>";
 				echo "</div>";

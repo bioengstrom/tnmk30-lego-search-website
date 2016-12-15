@@ -45,7 +45,7 @@
 			 	echo "</div>";
 				}
 
-			print("<p id ='setParts'>This item consists of:</p>
+			print("<p id ='ListItemParts'>This item consists of:</p>
 			<div id='allParts'>");
 
 			while($row = mysqli_fetch_array($result)) //Display all parts included in the set
@@ -70,12 +70,12 @@
 				}
 
 				/*PRINT SET PARTS OUTPUT*/
-				echo "<a class='legoSet' href='search_bit.php?PartID=".$PartID."&ColorID=".$ColorID."'>";
+				echo "<a class='legoListItem' href='search_bit.php?PartID=".$PartID."&ColorID=".$ColorID."'>";
 				echo "<div>";
 				echo "<img src='".$filename."'>";
 				echo "<span>";
-				echo "<p class='legoSetTitle'>".$row["Partname"]."</p>";
-				echo "<p class='legoSetId'><span>id: </span>".$row["PartID"]."</p>";
+				echo "<p class='legoListItemTitle'>".$row["Partname"]."</p>";
+				echo "<p class='legoListItemId'><span>id: </span>".$row["PartID"]."</p>";
 				echo "<p><span>Color: </span>".$row["Colorname"]."</p>";
 				echo "<p><span>Quantity: </span>".$row["Quantity"]."</p>";
 				echo "</span>";

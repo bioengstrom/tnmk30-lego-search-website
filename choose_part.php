@@ -8,11 +8,11 @@
 		if (!$connection) { //If unable to connect display error message
 			die('MySQL connection error');
 		}
-		
+
 		if (empty($_GET['page'])){
 			$limit_results = 'LIMIT 0,20';
 		}
-		
+
 		$keyword = mysqli_real_escape_string($connection, $_POST["keyword"]);
 
 		$result = mysqli_query($connection, "SELECT DISTINCT parts.Partname, parts.PartID, inventory.ColorID, colors.Colorname FROM parts, inventory, colors
@@ -23,7 +23,7 @@
 
 		print("<p id ='amountParts'>These parts contain the keyword: ".$keyword."</p>
 				<div id='allParts'>");
-		
+
 		while($row = mysqli_fetch_array($result) AND $keyword != NULL){ //Display all parts containing the keyword
 
 			$PartID = $row['PartID'];
@@ -45,30 +45,19 @@
 				 $filename = "error.png";
 			}
 
-      echo "<a class='legoSet' href='search_bit.php?PartID=".$PartID."&ColorID=".$ColorID."'>"; //Link to the displayed set
+      echo "<a class='legoListItem' href='search_bit.php?PartID=".$PartID."&ColorID=".$ColorID."'>"; //Link to the displayed set
 			echo "<div>";
 			echo "<img src='".$filename."'>";
 			echo "<span>
-              <p class='legoSetTitle'>".$Partname."</p>
-              <p class='legoSetId'><span>id: </span>".$PartID."</p>
-              <p class='legoSetColor'><span>color: </span>".$ColorID."</p>
+              <p class='legoListItemTitle'>".$Partname."</p>
+              <p class='legoListItemId'><span>id: </span>".$PartID."</p>
+              <p class='legoListItemColor'><span>color: </span>".$ColorID."</p>
             </span>";
       echo "</div>";
       echo "</a>";
 		}
-<<<<<<< HEAD
-
 		echo "</div>"; //close allParts div
 		echo "</div>"; // close itemContainer div
-=======
-		
-		$split_array = array_chunk($row, 20, true);
-		$pages = count($split_array);
-		
-		echo $pages;
-		
-		print ("</div>");
->>>>>>> 3d5118355ea1c6cc04093a8190241d854c597237
 		mysqli_close($connection);
     ?>
 
