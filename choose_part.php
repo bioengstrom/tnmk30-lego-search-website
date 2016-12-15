@@ -61,7 +61,7 @@
 				 $filename = "error.png";
 			}
 
-      echo "<a class='legoListItem' href='search_bit.php?PartID=".$PartID."&ColorID=".$ColorID."'>"; //Link to the displayed set
+      echo "<a class='legoListItem' href='inventory_part.php?PartID=".$PartID."&ColorID=".$ColorID."'>"; //Link to the displayed set
 			echo "<div>";
 			echo "<img src='".$filename."'>";
 			echo "<span>
