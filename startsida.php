@@ -26,8 +26,11 @@
 						</div>
 					</div>
 					<form action="search_bit.php" method="post">
-						<h5 class="alertWarning">Search value must be longer than 3 characters</h5>
+						<h5 class="alertWarning">Search value must be at least 3 characters</h5>
 						<input type="text" name="keyword" id="keyword" onkeyup="toggleButton(), checkLength()" placeholder="Type in a Piece Name to start Finding" autofocus>
+						<div id="" >
+
+						</div>
 						<input type="submit" value="search" name="search" id="searchButton">
 						<p>
 							Specify your search after attributes like color or size
