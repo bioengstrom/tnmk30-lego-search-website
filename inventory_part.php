@@ -73,36 +73,38 @@
 									AND parts.PartID=inventory.ItemID AND inventory.ColorID='$ColorID' AND inventory.SetID=
 									sets.SetID AND inventory.ColorID=colors.ColorID ORDER BY $sort"); //Get wanted information about the parts
 
-
-			while($row = mysqli_fetch_array($result)) //Display all parts included in the set
-			{
-				$SetID = $row['SetID'];
-
-				$imagesearch = mysqli_query($connection, "SELECT * FROM images WHERE ItemTypeID='S' AND ItemID='$SetID'");
-
-			    $imageinfo = mysqli_fetch_array($imagesearch);
-
-				if($imageinfo['has_jpg']) { // Use JPG if it exists
-				 	$filename = "$link/S/$SetID.jpg";
-				}
-				else if($imageinfo['has_gif']) { // Use GIF if JPG is unavailable
-				 	$filename = "$link/S/$SetID.gif";
-				}
-				else { // If neither format is available, insert a placeholder image
-				 	$filename = "error.png";
-				}
-				/*PRINT ITEM SETS OUTPUT*/
-				echo "<a class='legoListItem' href='search_sats.php?SetID=".$SetID."'>";
-				echo "<div>";
-				echo "<img src='".$filename."'>";
-				echo "<span>";
-				echo "<p class='legoListItemTitle'>".$row["Setname"]."</p>";
-				echo "<p class='legoListItemId'><span>id: </span>".$row["SetID"]."</p>";
-				echo "<p><span>Quantity: </span>".$row["Quantity"]."</p>";
-				echo "</span>";
-				echo "</div>";
-				echo "</a>";
+			while($row = mysqli_fetch_array($result)) {
+				
 			}
+			// while($row = mysqli_fetch_array($result)) //Display all parts included in the set
+			// {
+				// $SetID = $row['SetID'];
+
+				// $imagesearch = mysqli_query($connection, "SELECT * FROM images WHERE ItemTypeID='S' AND ItemID='$SetID'");
+
+			    // $imageinfo = mysqli_fetch_array($imagesearch);
+
+				// if($imageinfo['has_jpg']) { // Use JPG if it exists
+				 	// $filename = "$link/S/$SetID.jpg";
+				// }
+				// else if($imageinfo['has_gif']) { // Use GIF if JPG is unavailable
+				 	// $filename = "$link/S/$SetID.gif";
+				// }
+				// else { // If neither format is available, insert a placeholder image
+				 	// $filename = "error.png";
+				// }
+				// /*PRINT ITEM SETS OUTPUT*/
+				// echo "<a class='legoListItem' href='inventory_part.php?SetID=".$SetID."'>";
+				// echo "<div>";
+				// echo "<img src='".$filename."'>";
+				// echo "<span>";
+				// echo "<p class='legoListItemTitle'>".$row["Setname"]."</p>";
+				// echo "<p class='legoListItemId'><span>id: </span>".$row["SetID"]."</p>";
+				// echo "<p><span>Quantity: </span>".$row["Quantity"]."</p>";
+				// echo "</span>";
+				// echo "</div>";
+				// echo "</a>";
+			// }
 
 			print ("</div>");
 			mysqli_close($connection);

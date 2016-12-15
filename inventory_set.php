@@ -87,7 +87,7 @@
 				}
 
 				/*PRINT SET PARTS OUTPUT*/
-				echo "<a class='legoListItem' href='search_bit.php?PartID=".$PartID."&ColorID=".$ColorID."'>";
+				echo "<a class='legoListItem' href='inventory_part.php?PartID=".$PartID."&ColorID=".$ColorID."'>";
 				echo "<div>";
 				echo "<img src='".$filename."'>";
 				echo "<span>";
