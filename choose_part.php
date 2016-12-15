@@ -9,20 +9,36 @@
 			die('MySQL connection error');
 		}
 
-		if (empty($_GET['page'])){
-			$limit_results = 'LIMIT 0,20';
-		}
-
 		$keyword = mysqli_real_escape_string($connection, $_POST["keyword"]);
-
-		$result = mysqli_query($connection, "SELECT DISTINCT parts.Partname, parts.PartID, inventory.ColorID, colors.Colorname FROM parts, inventory, colors
-								WHERE (PartID LIKE '%$keyword%' OR Partname LIKE '%$keyword%') AND parts.PartID=inventory.ItemID
-								AND inventory.ColorID=colors.ColorID ORDER BY Partname"); //Get all parts that contain the keyword
 
 		$link = "http://weber.itn.liu.se/~stegu76/img.bricklink.com"; //Link to all images
 
+		if (isset($_POST['oldKeyword'])){
+			$keyword = $_POST['oldKeyword'];
+		}
+
 		print("<p id ='amountParts'>These parts contain the keyword: ".$keyword."</p>
 				<div id='allParts'>");
+
+		echo "<form name='sortForm' method='POST'>
+			 <select name='sortForm'>
+			 <option value='Partname'>-- Choose an option --</option>
+			 <option value='Partname'>Name</option>
+			 <option value='PartID'>ID-number</option>
+			 </select>
+			 <input type='hidden' name='oldKeyword' value='".$keyword."'/>
+			 <input type = 'submit' value = 'Sort' />
+			 </form>";
+
+		$sort = "Partname";
+
+		if (isset($_POST['sortForm'])){
+			$sort = $_POST['sortForm'];
+		}
+
+		$result = mysqli_query($connection, "SELECT DISTINCT parts.Partname, parts.PartID, inventory.ColorID, colors.Colorname FROM parts, inventory, colors
+								WHERE (PartID LIKE '%$keyword%' OR Partname LIKE '%$keyword%') AND parts.PartID=inventory.ItemID
+								AND inventory.ColorID=colors.ColorID ORDER BY $sort"); //Get all parts that contain the keyword
 
 		while($row = mysqli_fetch_array($result) AND $keyword != NULL){ //Display all parts containing the keyword
 
@@ -45,13 +61,13 @@
 				 $filename = "error.png";
 			}
 
-      echo "<a class='legoSet' href='search_bit.php?PartID=".$PartID."&ColorID=".$ColorID."'>"; //Link to the displayed set
+      echo "<a class='legoListItem' href='search_bit.php?PartID=".$PartID."&ColorID=".$ColorID."'>"; //Link to the displayed set
 			echo "<div>";
 			echo "<img src='".$filename."'>";
 			echo "<span>
-              <p class='legoSetTitle'>".$Partname."</p>
-              <p class='legoSetId'><span>id: </span>".$PartID."</p>
-              <p class='legoSetColor'><span>color: </span>".$ColorID."</p>
+              <p class='legoListItemTitle'>".$Partname."</p>
+              <p class='legoListItemId'><span>id: </span>".$PartID."</p>
+              <p class='legoListItemColor'><span>color: </span>".$ColorID."</p>
             </span>";
       echo "</div>";
       echo "</a>";
@@ -63,6 +79,5 @@
 		mysqli_close($connection);
     ?>
 
-  </div>
   </body>
 </html>
