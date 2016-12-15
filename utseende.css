@@ -154,15 +154,10 @@ a,p,h1,h2,h3,h4,h5,input {
   border-radius: 2px;
   text-align: left;
   line-height: 0;
-/*display: none;*/
   opacity: 0;
 
   color: #772929;
   background: linear-gradient(to bottom, #f25757, #d64d4d);
-
-  /*transition: all 0.5s background, color, display;*/
-  /*animation: fadeIn 1s; */
-  /*animation: fadeOut 1s;*/
 }
 .alertWarning::before{
   content: "!";

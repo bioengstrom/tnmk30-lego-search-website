@@ -1,4 +1,4 @@
-//runs the script so that it updates without requiring reload, (aka AJAX?)
+//runs the script so that it updates without requiring reload.
 //checks length of string entered in searchbar.
 function checkLength() {
   var keyword = document.getElementById("keyword");
@@ -24,7 +24,7 @@ function display(visual) {
   var alert = document.getElementsByClassName("alertWarning")[0];
   if (visual == "none") {
     console.log("No error message");
-    if(alert.style.opacity == "1") { //Error message showing? if no, don't fadeOut.
+    if(alert.style.opacity == "1") { //Error message showing? if yes, fadeOut.
       animation("fadeOut 0.5s", alert);
       alert.style.opacity = "0"; //keeps error message OFF
     }
@@ -37,7 +37,6 @@ function display(visual) {
 }
 
 function animation(animationType, alert) {
-  //takes care of animation for different browser variations
   alert.style.webkitAnimation = animationType;
   alert.style.MozAnimation = animationType;
   alert.style.msAnimation = animationType;

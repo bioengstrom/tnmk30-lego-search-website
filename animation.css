@@ -1,46 +1,44 @@
 /*These are the animations for the search bar error message that ckecks character length*/
 /*FadeIn shows message, fadeOut hides message*/
 
-/*earlier versions of chrome and safari*/
+/*fadeIn animation*/
 @-webkit-keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
 }
-@-webkit-keyframes fadeOut {
-  from { opacity: 1; }
-  to { opacity: 0; }
-}
-/*earlier versions of firefox*/
 @-moz-keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
+}
+@-ms-keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@-o-keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/*fadeOut animation*/
+@-webkit-keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
 }
 @-moz-keyframes fadeOut {
   from { opacity: 1; }
   to { opacity: 0; }
 }
-/*earlier versions of internet explorer*/
-@-ms-keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
 @-ms-keyframes fadeOut {
   from { opacity: 1; }
   to { opacity: 0; }
 }
-/*earlier versions of opera*/
-@-o-keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
 @-o-keyframes fadeOut {
   from { opacity: 1; }
   to { opacity: 0; }
-}
-/*standard syntax*/
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
 }
 @keyframes fadeOut {
   from { opacity: 1; }
