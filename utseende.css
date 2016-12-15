@@ -168,7 +168,21 @@ a,p,h1,h2,h3,h4,h5,input {
   line-height: 0.3;
 }
 
+#warningButton {
+  background-color: rgba(145, 29, 29, 0.4);
+  position: absolute;
+  margin-top: -42px;
+  margin-left: 52vw;
+/*
+  display: none;*/
 
+  width: 10%;
+  max-width: 70px;
+  border: none;
+  height: 42px;
+  padding: 0;
+  border-radius: 0px 4px 4px 0px;
+}
 
 @media screen and (max-width: 1200px) {
 
