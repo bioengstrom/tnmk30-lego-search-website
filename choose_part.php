@@ -4,18 +4,21 @@
 
     <?php
 		$connection = mysqli_connect("mysql.itn.liu.se", "lego", "", "lego");
-
-		if (!$connection) { //If unable to connect display error message
-			die('MySQL connection error');
-		}
+		
+		//If unable to connect display error message
+		if (!$connection) die('MySQL connection error'); 
+		
+		$Page = 1;
+		
+		if (isset($_GET['Page'])) $Page = $_GET['Page']; 
 
 		$keyword = mysqli_real_escape_string($connection, $_POST["keyword"]);
 
 		$link = "http://weber.itn.liu.se/~stegu76/img.bricklink.com"; //Link to all images
 
-		if (isset($_POST['oldKeyword'])){
-			$keyword = $_POST['oldKeyword'];
-		}
+		if (isset($_POST['oldKeyword'])) $keyword = $_POST['oldKeyword'];
+		
+		if (isset($_GET['Keyword'])) $keyword = $_GET['Keyword']; 
 
 		print("<p id ='amountParts'>These parts contain the keyword: ".$keyword."</p>
 				<div id='allParts'>");
@@ -23,24 +26,39 @@
 		echo "<form name='sortForm' method='POST'>
 			 <select name='sortForm'>
 			 <option value='Partname'>-- Choose an option --</option>
-			 <option value='Partname'>Name</option>
-			 <option value='PartID'>ID-number</option>
+			 <option value='Partname ASC'>Name Ascending</option>
+			 <option value='Partname DESC'>Name Descending</option>
+			 <option value='PartID ASC'>ID-number Ascending</option>
+			 <option value='PartID DESC'>ID-number Descending</option>
 			 </select>
-			 <input type='hidden' name='oldKeyword' value='".$keyword."'/>
 			 <input type = 'submit' value = 'Sort' />
 			 </form>";
 
 		$sort = "Partname";
 
-		if (isset($_POST['sortForm'])){
-			$sort = $_POST['sortForm'];
-		}
+		if (isset($_POST['sortForm'])) $sort = $_POST['sortForm']; 
 
 		$result = mysqli_query($connection, "SELECT DISTINCT parts.Partname, parts.PartID, inventory.ColorID, colors.Colorname FROM parts, inventory, colors
 								WHERE (PartID LIKE '%$keyword%' OR Partname LIKE '%$keyword%') AND parts.PartID=inventory.ItemID
 								AND inventory.ColorID=colors.ColorID ORDER BY $sort"); //Get all parts that contain the keyword
+								
+		$counter = 0;
+		$max_per_page = 20;
+		
+		while($row = mysqli_fetch_array($result)) {
+			$counter++; }
 
-		while($row = mysqli_fetch_array($result) AND $keyword != NULL){ //Display all parts containing the keyword
+		$total_pages = floor($counter / $max_per_page) + 1;
+	
+		$limit_start = ($Page * $max_per_page) - $max_per_page;
+
+		$pageresult = mysqli_query($connection, "SELECT DISTINCT parts.Partname, parts.PartID, inventory.ColorID, 
+												 colors.Colorname FROM parts, inventory, colors WHERE (PartID LIKE 
+												 '%$keyword%' OR Partname LIKE '%$keyword%') AND parts.PartID=inventory.ItemID
+												 AND inventory.ColorID=colors.ColorID ORDER BY $sort LIMIT $limit_start, 
+												 $max_per_page"); 
+								
+		while($row = mysqli_fetch_array($pageresult) AND $keyword != NULL){ //Display all parts containing the keyword
 
 			$PartID = $row['PartID'];
 			$Partname = $row['Partname'];
@@ -61,23 +79,26 @@
 				 $filename = "error.png";
 			}
 
-      echo "<a class='legoListItem' href='search_bit.php?PartID=".$PartID."&ColorID=".$ColorID."'>"; //Link to the displayed set
+			echo "<a class='legoListItem' href='inventory_part.php?PartID=".$PartID."&ColorID=".$ColorID."'>"; //Link to the displayed set
 			echo "<div>";
 			echo "<img src='".$filename."'>";
 			echo "<span>
-              <p class='legoListItemTitle'>".$Partname."</p>
-              <p class='legoListItemId'><span>id: </span>".$PartID."</p>
-              <p class='legoListItemColor'><span>color: </span>".$ColorID."</p>
-            </span>";
-      echo "</div>";
-      echo "</a>";
+				 <p class='legoListItemTitle'>".$Partname."</p>
+				 <p class='legoListItemId'><span>ID: </span>".$PartID."</p>
+				 <p class='legoListItemColor'><span>Color: </span>".$Colorname."</p>
+				 </span>";
+			echo "</div>";
+			echo "</a>";
 		}
-
-		echo "</div>"; //close allParts div
-		echo "</div>"; // close itemContainer div
-
+		
+		$link_search = "choose_part.php?Keyword=".$keyword;
+		
 		mysqli_close($connection);
     ?>
-
+	
+	<?php include("page_navigation.php"); ?>
+		
+	</div>
+	</div> 
   </body>
 </html>

@@ -9,8 +9,9 @@
 		<link href="utseende_search_bitar.css" rel="stylesheet" type="text/css"/>
 		<script src="searchtab.js"></script>
 		<script src="validator.js"></script>
+		<script src="validatorButton.js"></script>
 	</head>
-	<body onload="tabColor(), toggleButton()">
+	<body onload="tabColor(), toggleButtons()">
 		<div class="colContainer">
 			<div id="startContainerBG">
 			</div>
@@ -18,20 +19,20 @@
 				<h1 id="startHeader">welcome to <span>Lego Database Finder<span></h1>
 				<div id="searchBarContainer">
 					<div id="searchTabContainer">
-						<div id="searchBit" onclick="changeTab(this.id), reloadPage()">
+						<div id="searchBit" onclick="changeTab(this.id)">
 							<h3>Parts</h3>
 						</div>
-						<div id="searchSats" onclick="changeTab(this.id), reloadPage()">
+						<div id="searchSats" onclick="changeTab(this.id)">
 							<h3>Sets</h3>
 						</div>
 					</div>
 					<form action="search_bit.php" method="post">
 						<h5 class="alertWarning">Search value must be at least 3 characters</h5>
-						<input type="text" name="keyword" id="keyword" onkeyup="toggleButton(), checkLength()" placeholder="Type in a Piece Name to start Finding" autofocus>
-						<div id="" >
-
+						<input id="keyword" type="text" name="keyword" onkeyup="runFunction(), toggleButtons(), enterKeyPress(event)" placeholder="Type in a Piece Name to start Finding" autofocus>
+						<div id="searchButtonContainer">
+							<input id="searchButton" type="submit" value="search" name="search" >
+							<div id="warningButton" onclick="checkLength()"></div>
 						</div>
-						<input type="submit" value="search" name="search" id="searchButton">
 						<p>
 							Specify your search after attributes like color or size
 							<span>e.g corner piece 2 x 2</span>
