@@ -11,7 +11,7 @@ function runFunction() {
 //checks length of string entered in searchbar.
 function checkLength() {
   var keyword = document.getElementById("keyword");
-  if(keyword.value.length >= 3) {
+  if(keyword.value.length >= 3 || keyword.value.length == 0) {
     displayWarning("none");
   }
   else {
