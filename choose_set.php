@@ -4,43 +4,43 @@
 
     <?php
 		$connection = mysqli_connect("mysql.itn.liu.se", "lego", "", "lego");
-		
+
 		//If unable to connect display error message
-		if (!$connection) die('MySQL connection error'); 
-			
+		if (!$connection) die('MySQL connection error');
+
 		$Page = 1;
-		if (isset($_GET['Page'])) $Page = $_GET['Page']; 
-		
+		if (isset($_GET['Page'])) $Page = $_GET['Page'];
+
 		$link = "http://weber.itn.liu.se/~stegu76/img.bricklink.com"; //Link to all images
-		
+
 		$keyword = mysqli_real_escape_string($connection, $_POST["keyword"]); //The users search-word
 		if (isset($_POST['oldKeyword'])) $keyword = $_POST['oldKeyword'];
-		if (isset($_GET['Keyword'])) $keyword = $_GET['Keyword']; 
+		if (isset($_GET['Keyword'])) $keyword = $_GET['Keyword'];
 
 		$sort = "Setname";
 		if (isset($_GET['Sort'])) $sort = $_GET['Sort'];
 
 
-		$result = mysqli_query($connection, "SELECT Setname, SetID FROM sets WHERE (SetID LIKE '%$keyword%' 
-											OR Setname LIKE '%$keyword%') ORDER BY $sort"); 
-		
+		$result = mysqli_query($connection, "SELECT Setname, SetID FROM sets WHERE (SetID LIKE '%$keyword%'
+											OR Setname LIKE '%$keyword%') ORDER BY $sort");
+
 		$counter = 0;
 		$max_per_page = 20;
-		
+
 		while($row = mysqli_fetch_array($result)) {
 			$counter++;
 		}
-		
+
 		if ($counter == 0) {
-			include("error_message.php"); 
+			include("error_message.php");
 		}
 		else {
-			echo "<p id ='amountParts'><span>These sets contain the keyword: </span>".$keyword."</p>";
+			echo "<p id ='amountParts'>These sets contain the keyword: <span>".$keyword."</span></p>";
 			echo "<div id='allParts'>";
 
 			echo "<form name='sortForm' method='POST'>
 				<select name='sortForm'>
-				<option value='Setname'>-- Choose a sorting option --</option>
+				<option value='Setname'>Choose a sorting option</option>
 				<option value='Setname ASC'>Name Ascending</option>
 				<option value='Setname DESC'>Name Descending</option>
 				<option value='SetID ASC'>ID-number Ascending</option>
@@ -49,15 +49,15 @@
 				<input type='hidden' name='oldKeyword' value='".$keyword."'/>
 				<input type = 'submit' value = 'Sort' />
 				</form>";
-		
+
 			if (isset($_POST['sortForm'])) $sort = $_POST['sortForm'];
 			$total_pages = floor($counter / $max_per_page) + 1;
 			$limit_start = ($Page * $max_per_page) - $max_per_page;
-		
-			$pageresult = mysqli_query($connection, "SELECT Setname, SetID FROM sets WHERE (sets.SetID LIKE '%$keyword%' 
-													 OR sets.Setname LIKE '%$keyword%') ORDER BY $sort LIMIT $limit_start, 
+
+			$pageresult = mysqli_query($connection, "SELECT Setname, SetID FROM sets WHERE (sets.SetID LIKE '%$keyword%'
+													 OR sets.Setname LIKE '%$keyword%') ORDER BY $sort LIMIT $limit_start,
 													 $max_per_page"); //Get all sets that contain the keyword
-									
+
 			while($row = mysqli_fetch_array($pageresult) AND $keyword != NULL){ //Display all sets containing the keyword
 
 				$SetID = $row['SetID'];
@@ -87,14 +87,14 @@
 				echo "</div>";
 				echo "</a>";
 			}
-			
+
 			$link_search = "choose_set.php?Keyword=".$keyword."&Sort=".$sort;
-			include("page_navigation.php"); 
+			include("page_navigation.php");
 		}
 		mysqli_close($connection);
     ?>
 
-		
+
 	</div>
 	</div>
   </body>

@@ -4,25 +4,25 @@
 
 		<?php
 			$connection = mysqli_connect("mysql.itn.liu.se", "lego", "", "lego");
-			
+
 			//If unable to connect display error message
-			if (!$connection) die('MySQL connection error'); 
+			if (!$connection) die('MySQL connection error');
 
 			$PartID = $_GET['PartID'];
 			$ColorID = $_GET['ColorID'];
 
 			$Page = 1;
-			
+
 			if (isset($_GET['Page']))$Page = $_GET['Page'];
-			
+
 			$link = "http://weber.itn.liu.se/~stegu76/img.bricklink.com"; //Link to all images
 
-			$setsearch = mysqli_query($connection, "SELECT parts.PartID, parts.Partname, colors.Colorname FROM parts, 
-													colors WHERE parts.PartID='$PartID' AND colors.ColorID='$ColorID'"); 
+			$setsearch = mysqli_query($connection, "SELECT parts.PartID, parts.Partname, colors.Colorname FROM parts,
+													colors WHERE parts.PartID='$PartID' AND colors.ColorID='$ColorID'");
 
 			while($setinfo = mysqli_fetch_array($setsearch)) //Display image and information about the chosen set
 			{
-				$imagesearch = mysqli_query($connection, "SELECT * FROM images WHERE ItemID='$PartID' AND ColorID='$ColorID' 
+				$imagesearch = mysqli_query($connection, "SELECT * FROM images WHERE ItemID='$PartID' AND ColorID='$ColorID'
 														  AND ItemTypeID='P'");
 
 				$imageinfo = mysqli_fetch_array($imagesearch);
@@ -55,7 +55,7 @@
 
 			echo "<form name='sortForm' method='POST'>
 				 <select name='sortForm'>
-				 <option value='Setname'>-- Choose a sorting option --</option>
+				 <option value='Setname'>Choose a sorting option</option>
 				 <option value='Setname ASC'>Name Ascending</option>
 				 <option value='Setname DESC'>Name Descending</option>
 				 <option value='SetID ASC'>ID-number Ascending</option>
@@ -67,28 +67,28 @@
 				 </form>";
 
 			$sort = "Setname";
-			
-			if (isset($_GET['Sort'])) $sort = $_GET['Sort']; 
 
-			if (isset($_POST['sortForm'])) $sort = $_POST['sortForm']; 
-		
+			if (isset($_GET['Sort'])) $sort = $_GET['Sort'];
+
+			if (isset($_POST['sortForm'])) $sort = $_POST['sortForm'];
+
 			$result = mysqli_query($connection, "SELECT parts.Partname, parts.PartID, colors.Colorname, inventory.Quantity,
 									sets.Setname, sets.SetID FROM sets, inventory, colors, parts WHERE parts.PartID='$PartID'
 									AND parts.PartID=inventory.ItemID AND inventory.ColorID='$ColorID' AND inventory.SetID=
-									sets.SetID AND inventory.ColorID=colors.ColorID ORDER BY $sort"); 
+									sets.SetID AND inventory.ColorID=colors.ColorID ORDER BY $sort");
 
 			$counter = 0;
 			$max_per_page = 20;
-			
-			while($row = mysqli_fetch_array($result)) $counter++; 
-	
-			$total_pages = floor($counter / $max_per_page) + 1;	
+
+			while($row = mysqli_fetch_array($result)) $counter++;
+
+			$total_pages = floor($counter / $max_per_page) + 1;
 			$limit_start = ($Page * $max_per_page) - $max_per_page;
-			
+
 			$pageresult = mysqli_query($connection, "SELECT parts.Partname, parts.PartID, colors.Colorname, inventory.Quantity,
 									sets.Setname, sets.SetID FROM sets, inventory, colors, parts WHERE parts.PartID='$PartID'
 									AND parts.PartID=inventory.ItemID AND inventory.ColorID='$ColorID' AND inventory.SetID=
-									sets.SetID AND inventory.ColorID=colors.ColorID ORDER BY $sort LIMIT $limit_start, $max_per_page"); 
+									sets.SetID AND inventory.ColorID=colors.ColorID ORDER BY $sort LIMIT $limit_start, $max_per_page");
 
 			while($row = mysqli_fetch_array($pageresult)) //Display all parts included in the set
 			{
@@ -119,14 +119,14 @@
 				echo "</div>";
 				echo "</a>";
 			}
-			
+
 			$link_search = "inventory_part.php?PartID=".$PartID."&ColorID=".$ColorID."&Sort=".$sort;
-			
+
 			mysqli_close($connection);
 		?>
-		
+
 		<?php include("page_navigation.php"); ?>
-		
+
 		</div>
 	</div>
 	</body>
