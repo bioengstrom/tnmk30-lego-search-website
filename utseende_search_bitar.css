@@ -3,12 +3,13 @@
 	width: 100%;
 }
 #amountParts{
-	font-size: 40px;
-	margin: 20px 0 5px 0;
+	font-size: 3vw;
+	font-weight: 100;
+	margin: 1vw 0;
 	text-align: center;
 }
 #amountParts span{
-	font-size: 30px;
+	font-weight: 500;
 }
 #allParts {
 	display: flex;
@@ -94,14 +95,12 @@
 	color: #565656;
 }
 #ListItemParts{
-	font-size: 25px;
+	font-size: 3vw;
 	font-weight: 100;
 	width: calc(70% - 12px);
-	margin: 20px auto 5px auto;
-	color: #eaeaea;
-	background-color: #283593;
+	margin: 0.5vw auto;
+	color: #1d1d1d;
 	padding: 10px 6px;
-	border: 2px solid #1A237E;
 	border-radius: 2px;
 }
 
@@ -169,13 +168,12 @@
 	padding: 0 3px;
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1500px) {
 
-
-
-
-
-
+	#amountParts{
+		margin: 2vw 0;
+		font-size: 3.5vw;
+	}
 }
 
 
@@ -201,7 +199,8 @@
 		font-size: 1.7vw;
 	}
 	#ListItemParts{
-		font-size: 2.3vw;
+		font-size: 3.2vw;
+		margin: 0.7vw auto;
 	}
 	.legoListItemTitle{
 		font-size: 1.7vw;
@@ -248,6 +247,9 @@
 }
 
 @media screen and (max-width: 700px) {
+	#amountParts{
+		font-size: 4.5vw;
+	}
 	.legoName{
 		font-size: 3vw;
 	}
@@ -260,6 +262,9 @@
 }
 
 @media screen and (max-width: 580px) {
+	#amountParts{
+		font-size: 5.5vw;
+	}
 	.legoName{
 		font-size: 3.2vw;
 	}
