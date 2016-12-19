@@ -18,7 +18,9 @@
 	max-width: 70%;
 	margin: auto;
 }
-
+#allParts form input{
+	background-color:
+}
 /* CSS FOR SHOWING A SINGLE ListItem*/
 #legoItem{
 	max-width: 70%;
@@ -234,12 +236,17 @@
 	.legoListItemId, .legoListItemColor{
 		font-size: 1.8vw;
 	}
+	.legoListItem p{
+		font-size: 1.8vw;
+	}
 
 }
 
 @media screen and (max-width: 700px) {
-
-	.legoListItemTitle{
+	.legoName{
+		font-size: 3vw;
+	}
+	.legoListItemTitle, .legoID{
 		font-size: 2.1vw;
 	}
 	.legoListItemId, .legoListItemColor{
@@ -248,8 +255,10 @@
 }
 
 @media screen and (max-width: 580px) {
-
-	.legoListItemTitle{
+	.legoName{
+		font-size: 2.8vw;
+	}
+	.legoListItemTitle, .legoID{
 		font-size: 2.5vw;
 	}
 	.legoListItemId, .legoListItemColor{

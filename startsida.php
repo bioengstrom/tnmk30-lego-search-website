@@ -31,7 +31,7 @@
 						<h5 class="alertWarning">Search value must be at least 3 characters</h5>
 						<input id="keyword" type="text" name="keyword" onkeyup="runFunction(), toggleButtons(), enterKeyPress(event)" placeholder="Type in a Piece Name to start Finding" autofocus autocomplete="off">
 						<div id="searchButtonContainer">
-							<input id="searchButton" type="submit" value="search" name="search" >
+							<input id="searchButton" type="submit" value="search" name="search">
 							<div id="warningButton" onclick="checkLength()"></div>
 						</div>
 						<p>Search the database via name or id</p>
