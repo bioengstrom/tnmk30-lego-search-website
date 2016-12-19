@@ -9,6 +9,7 @@ body {
 }
 a,p,h1,h2,h3,h4,h5,input,li {
   font-family: 'open sans', arial;
+  color: #1d1d1d;
 }
 .colContainer{
   display: flex;
@@ -75,7 +76,7 @@ a,p,h1,h2,h3,h4,h5,input,li {
   display: flex;
   flex-flow: row;
   background-color: #1A237E;
-  border-bottom: 2px solid #3F51B5;
+  border-bottom: 4px solid #3F51B5;
 
   width: 100%;
   padding-top: 10px;
@@ -223,20 +224,21 @@ a,p,h1,h2,h3,h4,h5,input,li {
 #allParts form select{
   border: none;
   background-color: white;
-  padding: 10px;
-  border-radius: 1px;
+  padding: 8px;
+  border-radius: 21x;
   outline: none;
+  color: #1d1d1d;
 }
  #allParts form input{
-   padding: 10px;
+   padding: 8px;
    background-color: #3F51B5;
    border: none;
    color: white;
    border-radius: 1px;
  }
-#allParts form select:focus, #allParts form select:active{
-  outline: 0;
-}
+ #allParts option{
+   color: #1d1d1d;
+ }
 
 @media screen and (min-width: 1600px) {
   #startHeader span{
@@ -408,6 +410,9 @@ a,p,h1,h2,h3,h4,h5,input,li {
     height: 70%;
     width: 90%;
   }
+  #startHeader{
+    margin-left: 5%;
+  }
   #searchBarContainer input[type=text]{
     height: 40%;
     width: 80%;
@@ -477,6 +482,13 @@ a,p,h1,h2,h3,h4,h5,input,li {
   a,p,h1,h2,h3,h4,h5,input,li {
     font-size: 2.4vw;
   }
+  #startHeader span{
+    margin: 0;
+    font-size: 6vw;
+  }
+  #startContainerBG, #startContainer{
+    height: 56vw;
+  }
   #searchBarContainer input[type=text]{
     height: 40%;
     margin-top: 6vw;
@@ -497,8 +509,15 @@ a,p,h1,h2,h3,h4,h5,input,li {
   a,p,h1,h2,h3,h4,h5,input,li {
     font-size: 2.8vw;
   }
-  #startContainerBG{
-    filter: brightness(0.3);
+  #startHeader{
+    margin-left: 2%;
+  }
+  #startHeader span{
+    margin: 0;
+  }
+  #startContainerBG, #startContainer{
+    height: 57vw;
+    justify-content: flex-start;
   }
   #searchBarContainer{
     width: 96%;
@@ -512,17 +531,17 @@ a,p,h1,h2,h3,h4,h5,input,li {
     font-size: 3.5vw;
   }
   #searchBarContainer form{
-    margin-top: 0.8%;
+    margin-top: 2.5%;
   }
   #searchBarContainer input[type=text]{
-    margin-top: 7.4vw;
+    margin-top: 9.4vw;
     font-size: 3.3vw;
   }
   #searchBarContainer input[type=submit]{
     font-size: 3.3vw;
   }
   #searchButtonContainer{
-    margin-top: 7.4vw;
+    margin-top: 9.4vw;
   }
 
 }
@@ -531,6 +550,9 @@ a,p,h1,h2,h3,h4,h5,input,li {
   a,p,h1,h2,h3,h4,h5,input,li {
     font-size: 3vw;
   }
+  #startHeader{
+    margin: 0.5vw 0 0.5vw 2%;
+  }
   #startHeader span{
     font-size: 6vw;
   }
@@ -538,7 +560,7 @@ a,p,h1,h2,h3,h4,h5,input,li {
     height: 68vw;
   }
   #searchBarContainer{
-    margin-bottom: -4vw;
+    height: 76%;
   }
   #searchBarContainer p{
     font-size: 3vw;
