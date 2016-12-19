@@ -27,7 +27,7 @@
 						<div id="searchSats" onclick="changeTab(this.id)">
 							<h3>Sets</h3>
 						</div>
-						<div id="aboutTab" onclick="changeTab(this.id)">
+						<div id="aboutTab" onclick="loadAbout()">
 							<h3>About</h3>
 						</div>
 					</div>
@@ -36,10 +36,10 @@
 						<input id="keyword" type="text" name="keyword" onkeyup="runFunction(), toggleButtons(), enterKeyPress(event)" autofocus autocomplete="off">
 						<div id="searchButtonContainer">
 							<input id="searchButton" type="submit" value="search" name="search">
-							<div id="warningButton" onclick="warningButtonClick()"></div>
+							<div id="warningButton" onclick="warningButtonClick()">
+							</div>
 						</div>
 						<p>Search the database via name or id</p>
 					</form>
 				</div>
 			</div>
-<!--- NOT END OF FILE. NEED TO INCLUDE --->

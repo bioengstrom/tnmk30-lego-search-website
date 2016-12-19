@@ -1,7 +1,7 @@
 //simulates warningButton to work like type=submit, as the enterKey toggles warning message.
 function enterKeyPress(event) {
   timerValidator = false;
-  var enterKey = 13; //13 is the standard keyCode for the Enter button
+  var enterKey = 13; //13 is the keyCode for the Enter button
   if(event.keyCode == enterKey || event.which == enterKey) {
     warningButtonClick();
   }

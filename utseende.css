@@ -93,6 +93,12 @@ a,p,h1,h2,h3,h4,h5,input,li {
   content: "";
   background-color: #1A237E;
 }
+#searchTabContainer::after{
+  width: 10px;
+  content: "";
+  background-color: #1A237E;
+
+}
 #searchSats{
   background-color: #1A237E; /*selected tab gets set by js. Thus both tabs are set to unseclected color here, in css*/
 }
@@ -110,6 +116,10 @@ a,p,h1,h2,h3,h4,h5,input,li {
 }
 #searchTabContainer div:hover{
   cursor: pointer;
+}
+#aboutTab {
+  background-color: rgba(63, 81, 181, 0.7);
+  margin-left: auto;
 }
 #searchBarContainer form{
   width: 100%;

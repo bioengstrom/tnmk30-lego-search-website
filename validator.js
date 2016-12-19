@@ -25,7 +25,7 @@ function displayWarning(visual) {
   var fadeTime = 200;
   if (visual == "none") {
     console.log("No error message");
-    if(alert.style.opacity == "1") { //Error message showing? if yes, fadeOut.
+    if(alert.style.opacity == "1") { //Error message showing? if no, don't fadeOut.
       animation("fadeOut "+fadeTime+"ms", alert);
       alert.style.opacity = "0"; //keeps error message OFF
     }
