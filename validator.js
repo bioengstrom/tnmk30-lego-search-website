@@ -10,6 +10,7 @@ function runFunction() {
 }
 //checks length of string entered in searchbar.
 function checkLength() {
+  timerValidator = false;
   var keyword = document.getElementById("keyword");
   if(keyword.value.length >= 3 || keyword.value.length == 0) {
     displayWarning("none");
@@ -17,7 +18,6 @@ function checkLength() {
   else {
     displayWarning("block");
   }
-  timerValidator = false;
 }
 //reveals warning message if entered string is too short.
 function displayWarning(visual) {

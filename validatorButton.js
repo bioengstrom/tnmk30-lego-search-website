@@ -23,13 +23,14 @@ function toggleSearchButton(keyword, searchButton) {
     searchButton.disabled = true;
   }
 }
-//Toggles warningButton
+//Toggles warningButton, either display it or not.
 function toggleWarningButton(keyword, warningButton) {
   var fadeTime = 200;
+  var warningDelay = 150;
   if(keyword.value.length >= 3) {
     if(warningButton.style.opacity == "1") {
       animation("fadeOut "+fadeTime+"ms", warningButton);
-      setTimeout(warningButtonDisable, 150); //lets the fadeOut animation finish before disable.
+      setTimeout(warningButtonDisable, warningDelay); //lets the fadeOut animation finish before disable.
     }
   }
   else {
@@ -45,6 +46,7 @@ function warningButtonDisable() {
 
 //checks length of string entered in searchbar.
 function tempName() {
+  timerValidator = false;
   var keyword = document.getElementById("keyword");
   if(keyword.value.length >= 3) {
     displayWarning("none");
@@ -52,5 +54,4 @@ function tempName() {
   else {
     displayWarning("block");
   }
-  timerValidator = false;
 }
