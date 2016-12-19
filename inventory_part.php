@@ -40,7 +40,7 @@
 				/*PRINTING FOR SINGLE ITEM*/
 				echo "<div id='legoItem'>";
 				echo "<span class='legoItemImgContainer'>";
-				echo "<img src='".$filename."'></img>";
+				echo "<img src='".$filename."' alt='Image does not exist'>";
 				echo "</span>";
 
 				echo "<div class='infoText'>
@@ -55,7 +55,7 @@
 
 			echo "<form name='sortForm' method='POST'>
 				 <select name='sortForm'>
-				 <option value='Setname'>-- Choose an option --</option>
+				 <option value='Setname'>-- Choose a sorting option --</option>
 				 <option value='Setname ASC'>Name Ascending</option>
 				 <option value='Setname DESC'>Name Descending</option>
 				 <option value='SetID ASC'>ID-number Ascending</option>
@@ -108,7 +108,7 @@
 				/*PRINT ITEM SETS OUTPUT*/
 				echo "<a class='legoListItem' href='inventory_set.php?SetID=".$SetID."'>";
 				echo "<div>";
-				echo "<img src='".$filename."'>";
+				echo "<img src='".$filename."' alt='Image does not exist'>";
 				echo "<span>";
 				echo "<p class='legoListItemTitle'>".$row["Setname"]."</p>";
 				echo "<p class='legoListItemId'><span>ID: </span>".$row["SetID"]."</p>";

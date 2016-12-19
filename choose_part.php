@@ -25,7 +25,7 @@
 
 		echo "<form name='sortForm' method='POST'>
 			 <select name='sortForm'>
-			 <option value='Partname'>-- Choose an option --</option>
+			 <option value='Partname'>-- Choose a sorting option --</option>
 			 <option value='Partname ASC'>Name Ascending</option>
 			 <option value='Partname DESC'>Name Descending</option>
 			 <option value='PartID ASC'>ID-number Ascending</option>
@@ -84,7 +84,7 @@
 
 			echo "<a class='legoListItem' href='inventory_part.php?PartID=".$PartID."&ColorID=".$ColorID."'>"; //Link to the displayed set
 			echo "<div>";
-			echo "<img src='".$filename."'>";
+			echo "<img src='".$filename."' alt='Image does not exist'>";
 			echo "<span>
 				 <p class='legoListItemTitle'>".$Partname."</p>
 				 <p class='legoListItemId'><span>ID: </span>".$PartID."</p>
