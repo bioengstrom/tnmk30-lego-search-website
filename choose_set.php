@@ -81,9 +81,9 @@
 				echo "<div>";
 				echo "<img src='".$filename."' alt='Image does not exist'alt='Image does not exist'>";
 				echo "<span>
-				  <p class='legoListItemTitle'>".$Setname."</p>
-				  <p class='legoListItemId'><span>id: </span>".$SetID."</p>
-				</span>";
+					 <p class='legoListItemTitle'>".$Setname."</p>
+					 <p class='legoListItemId'><span>id: </span>".$SetID."</p>
+					 </span>";
 				echo "</div>";
 				echo "</a>";
 			}

@@ -30,6 +30,7 @@
 				} else { // If neither format is available, insert a placeholder image
 						$filename = "error.png";
 				}
+				
 				/*PRINT SET OUTPUT*/
 				echo "<div id='legoItem'>";
 				echo "<span class='legoItemImgContainer'>";
@@ -37,8 +38,8 @@
 				echo "</span>";
 
 				echo "<div class='infoText'><p class='legoName'>".$setinfo["Setname"]."</p>
-				 	 <p class='legoID'><span>ID: </span>".$setinfo["SetID"]."</p><p>Release year: 
-					 ".$setinfo["Year"]."</p></div>";
+				 	 <p class='legoID'><span>ID: </span>".$setinfo["SetID"]."</p><p><span>Release year: 
+					 </span>".$setinfo["Year"]."</p></div>";
 			 	echo "</div>";
 			}
 
@@ -118,7 +119,6 @@
 			}
 			
 			$link_search = "inventory_set.php?SetID=".$SetID."&Sort=".$sort;
-			var_dump($link_search);
 			
 			mysqli_close($connection);
 		?>

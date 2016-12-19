@@ -50,7 +50,7 @@
 .legoID{
 	margin: 5px 0 0 0;
 }
-.legoID span{
+.legoID span, .infoText span{
 	font-weight: 700;
 }
 .legoPart{

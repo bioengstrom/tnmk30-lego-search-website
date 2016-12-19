@@ -60,6 +60,8 @@
 				 <option value='Setname DESC'>Name Descending</option>
 				 <option value='SetID ASC'>ID-number Ascending</option>
 				 <option value='SetID DESC'>ID-number Descending</option>
+				 <option value='Quantity ASC'>Quantity Ascending</option>
+				 <option value='Quantity DESC'>Quantity Descending</option>
 				 </select>
 				 <input type = 'submit' value = 'Sort' />
 				 </form>";
@@ -84,7 +86,7 @@
 			$limit_start = ($Page * $max_per_page) - $max_per_page;
 			
 			$pageresult = mysqli_query($connection, "SELECT parts.Partname, parts.PartID, colors.Colorname, inventory.Quantity,
-									sets.Setname, sets.SetID, sets.Year FROM sets, inventory, colors, parts WHERE parts.PartID='$PartID'
+									sets.Setname, sets.SetID FROM sets, inventory, colors, parts WHERE parts.PartID='$PartID'
 									AND parts.PartID=inventory.ItemID AND inventory.ColorID='$ColorID' AND inventory.SetID=
 									sets.SetID AND inventory.ColorID=colors.ColorID ORDER BY $sort LIMIT $limit_start, $max_per_page"); 
 
@@ -112,7 +114,7 @@
 				echo "<span>";
 				echo "<p class='legoListItemTitle'>".$row["Setname"]."</p>";
 				echo "<p class='legoListItemId'><span>ID: </span>".$row["SetID"]."</p>";
-				echo "<p><span>Release year: </span>".$row["Year"]."</p>";
+				echo "<p><span>Quantity: </span>".$row["Quantity"]."</p>";
 				echo "</span>";
 				echo "</div>";
 				echo "</a>";
