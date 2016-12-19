@@ -1,8 +1,20 @@
 //simulates warningButton to work like type=submit, as the enterKey toggles warning message.
 function enterKeyPress(event) {
+  timerValidator = false;
   var enterKey = 13; //13 is the standard keyCode for the Enter button
   if(event.keyCode == enterKey || event.which == enterKey) {
-    checkLength();
+    warningButtonClick();
+  }
+}
+//if the warningButton is pressed, checks if the warning message should be displayed.
+function warningButtonClick() {
+  timerValidator = false;
+  var keyword = document.getElementById("keyword");
+  if(keyword.value.length >= 3) { //displays even if nothing is entered yet.
+    displayWarning("none");
+  }
+  else {
+    displayWarning("block");
   }
 }
 //runs toggleSearchButton and toggleWarningButton
@@ -13,7 +25,7 @@ function toggleButtons() {
   toggleSearchButton(keyword, searchButton);
   toggleWarningButton(keyword, warningButton);
 }
-//Toggles the searchButton, either clickable or not. Runs once onload.
+//Toggles the searchButton, either clickable/submitable or not. Runs once onload.
 function toggleSearchButton(keyword, searchButton) {
   if(keyword.value.length >= 3) {
     searchButton.disabled = false;
@@ -42,16 +54,4 @@ function toggleWarningButton(keyword, warningButton) {
 //sets display to "none", so that the button underneath can be pressed.
 function warningButtonDisable() {
   document.getElementById("warningButton").style.display = "none";
-}
-
-//checks length of string entered in searchbar.
-function tempName() {
-  timerValidator = false;
-  var keyword = document.getElementById("keyword");
-  if(keyword.value.length >= 3) {
-    displayWarning("none");
-  }
-  else {
-    displayWarning("block");
-  }
 }

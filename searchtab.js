@@ -1,6 +1,6 @@
-
+//
 function tabColor() {
-  var lastClicked = "";
+  //var lastClicked = "";
   var lastClicked = sessionStorage.getItem("lastClicked");
     console.log("mans" + lastClicked);
   if (lastClicked == "bit") {
@@ -27,23 +27,24 @@ function changeTab(clicked){
 }
 
 function focus(type) {
+    var searchSats = document.getElementById('searchSats');
+    var searchBit = document.getElementById('searchBit');
+    var aboutTab = document.getElementById('aboutTab');
+    var keyword = document.getElementById("keyword");
+    var formTag = document.getElementsByTagName('form')[0];
+    keyword.focus();
   if (type == "bit") {
-    document.getElementById('searchSats').style.backgroundColor = "#1A237E";
-    document.getElementById('searchBit').style.backgroundColor = "#3F51B5";
-    document.getElementById("keyword").placeholder = "Search for Parts";
-    document.getElementsByTagName('form')[0].action = "choose_part.php";
+    searchSats.style.backgroundColor = "#1A237E";
+    searchBit.style.backgroundColor = "#3F51B5"; //gives this tab lighter color
+
+    keyword.placeholder = "Search for Parts";
+    formTag.action = "choose_part.php";
   }
   else if (type == "sats") {
-    document.getElementById('searchBit').style.backgroundColor = "#1A237E";
-    document.getElementById('searchSats').style.backgroundColor = "#3F51B5";
-    document.getElementById("keyword").placeholder = "Search for Sets";
-    document.getElementsByTagName('form')[0].action = "choose_set.php";
+    searchSats.style.backgroundColor = "#3F51B5"; //gives this tab lighter color
+    searchBit.style.backgroundColor = "#1A237E";
+
+    keyword.placeholder = "Search for Sets";
+    formTag.action = "choose_set.php";
   }
-  document.getElementById("keyword").focus();
 }
-
-function reloadPage() {
-  window.location = "startsida.php";
-}
-
-/* check this link out for fixing 'flicking' on tabs http://stackoverflow.com/questions/19844545/replacing-css-file-on-the-fly-and-apply-the-new-style-to-the-page*/
