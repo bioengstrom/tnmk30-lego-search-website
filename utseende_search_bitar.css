@@ -170,7 +170,7 @@
 
 @media screen and (max-width: 1500px) {
 
-	#amountParts{
+	#amountParts, #ListItemParts{
 		margin: 2vw 0;
 		font-size: 3.5vw;
 	}
@@ -181,7 +181,7 @@
 	#legoItem{
 		margin-top: 5vw;
 	}
-	#amountParts{
+	#amountParts, #ListItemParts{
 		font-size: 4vw;
 	}
 	#legoItem{
@@ -212,9 +212,10 @@
 }
 @media screen and (max-width: 800px) {
 
-	#amountParts{
+	#amountParts, #ListItemParts{
 		text-align: left;
 		margin-left: 5%;
+		font-size: 4.1vw;
 	}
 	#legoItem{
 		width: 90%;
@@ -234,9 +235,6 @@
 	.legoID{
 		font-size: 1.7vw;
 	}
-	#ListItemParts{
-		font-size: 2.3vw;
-	}
 	.legoListItemTitle{
 		font-size: 1.9vw;
 	}
@@ -247,7 +245,7 @@
 }
 
 @media screen and (max-width: 700px) {
-	#amountParts{
+	#amountParts, #ListItemParts{
 		font-size: 4.5vw;
 	}
 	.legoName{
@@ -262,8 +260,8 @@
 }
 
 @media screen and (max-width: 580px) {
-	#amountParts{
-		font-size: 5.5vw;
+	#amountParts, #ListItemParts{
+		font-size: 5vw;
 	}
 	.legoName{
 		font-size: 3.2vw;
