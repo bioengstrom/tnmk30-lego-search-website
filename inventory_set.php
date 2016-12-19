@@ -11,7 +11,6 @@
 			$SetID = $_GET['SetID']; //Get the SetID from the webpage link created by choose_set.php
 			
 			$Page = 1;
-			
 			if (isset($_GET['Page'])) $Page = $_GET['Page'];
 
 			$link = "http://weber.itn.liu.se/~stegu76/img.bricklink.com"; //Link to all images
