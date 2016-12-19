@@ -30,15 +30,16 @@ function focus(type) {
   if (type == "bit") {
     document.getElementById('searchSats').style.backgroundColor = "#1A237E";
     document.getElementById('searchBit').style.backgroundColor = "#3F51B5";
-//    document.getElementById("keyword").placeholder = "Search for Parts";
+    document.getElementById("keyword").placeholder = "Search for Parts";
     document.getElementsByTagName('form')[0].action = "choose_part.php";
   }
   else if (type == "sats") {
     document.getElementById('searchBit').style.backgroundColor = "#1A237E";
     document.getElementById('searchSats').style.backgroundColor = "#3F51B5";
-//    document.getElementById("keyword").placeholder = "Search for Sets";
+    document.getElementById("keyword").placeholder = "Search for Sets";
     document.getElementsByTagName('form')[0].action = "choose_set.php";
   }
+  document.getElementById("keyword").focus();
 }
 
 function reloadPage() {

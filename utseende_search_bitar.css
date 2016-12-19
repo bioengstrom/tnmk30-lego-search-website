@@ -285,3 +285,8 @@
 		font-size: 3.4vw;
 	}
 }
+.pageList {
+	display: inline-block;
+	list-style-type: none;
+	padding: 0 3px;
+}

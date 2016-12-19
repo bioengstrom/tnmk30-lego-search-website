@@ -1,5 +1,5 @@
-/*These are the animations for the search bar error message that ckecks character length*/
-/*FadeIn shows message, fadeOut hides message*/
+/*These are the animations for the searchBar warningMessage that ckecks character length*/
+/*FadeIn displays element, fadeOut hides element*/
 
 /*fadeIn animation*/
 @-webkit-keyframes fadeIn {

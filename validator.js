@@ -1,45 +1,46 @@
-//runs the script so that it updates without requiring reload.
+//adds timed event, therefor, warning message doesn't display directly
+var timerValidator = true;
+function runFunction() {
+  if(timerValidator == true) {
+    setTimeout(checkLength, 5000);
+  }
+  else if(timerValidator == false) {
+    checkLength();
+  }
+}
 //checks length of string entered in searchbar.
 function checkLength() {
   var keyword = document.getElementById("keyword");
-  if(keyword.value.length >= 3 || keyword.value.length == 0){
-    display("none");
+  if(keyword.value.length >= 3) {
+    displayWarning("none");
   }
   else {
-    display("block");
+    displayWarning("block");
   }
+  timerValidator = false;
 }
-//Toggles the searchButton, runs once onLoad.
-function toggleButton() {
-  var keyword = document.getElementById("keyword");
-  var searchButton = document.getElementById("searchButton");
-  searchButton.disabled = true;
-  if(keyword.value.length >= 3){
-    searchButton.disabled = false;
-  }
-}
-
-//reveals error message if entered string is too short.
-function display(visual) {
+//reveals warning message if entered string is too short.
+function displayWarning(visual) {
   var alert = document.getElementsByClassName("alertWarning")[0];
+  var fadeTime = 200;
   if (visual == "none") {
     console.log("No error message");
     if(alert.style.opacity == "1") { //Error message showing? if yes, fadeOut.
-      animation("fadeOut 0.5s", alert);
+      animation("fadeOut "+fadeTime+"ms", alert);
       alert.style.opacity = "0"; //keeps error message OFF
     }
   }
   else if (visual == "block") {
     console.log("Display error message");
-    animation("fadeIn 0.5s", alert);
+    animation("fadeIn "+fadeTime+"ms", alert);
     alert.style.opacity = "1"; //keeps error message ON
   }
 }
-
-function animation(animationType, alert) {
-  alert.style.webkitAnimation = animationType;
-  alert.style.MozAnimation = animationType;
-  alert.style.msAnimation = animationType;
-  alert.style.OAnimation = animationType;
-  alert.style.animation = animationType;
+//takes care of animations for different browser variations
+function animation(animationType, directory) {
+  directory.style.webkitAnimation = animationType;
+  directory.style.MozAnimation = animationType;
+  directory.style.msAnimation = animationType;
+  directory.style.OAnimation = animationType;
+  directory.style.animation = animationType;
 }
