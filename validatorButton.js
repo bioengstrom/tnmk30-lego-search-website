@@ -42,3 +42,15 @@ function toggleWarningButton(keyword, warningButton) {
 function warningButtonDisable() {
   document.getElementById("warningButton").style.display = "none";
 }
+
+//checks length of string entered in searchbar.
+function tempName() {
+  var keyword = document.getElementById("keyword");
+  if(keyword.value.length >= 3) {
+    displayWarning("none");
+  }
+  else {
+    displayWarning("block");
+  }
+  timerValidator = false;
+}
