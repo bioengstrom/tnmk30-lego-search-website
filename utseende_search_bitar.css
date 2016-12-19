@@ -162,7 +162,12 @@
 	flex-flow: row wrap;
 }
 
-
+/* PAGE NAV*/
+.pageList {
+	display: inline-block;
+	list-style-type: none;
+	padding: 0 3px;
+}
 
 @media screen and (max-width: 1200px) {
 
@@ -295,16 +300,4 @@
 	.legoListItemId, .legoListItemColor{
 		font-size: 3.4vw;
 	}
-}
-.pageList {
-	display: inline-block;
-	list-style-type: none;
-	padding: 0 3px;
-}
-
-.wrongSearch {
-	font-size: 2vw;
-}
-.wrongSearch span {
-	font-weight: 700;
 }
