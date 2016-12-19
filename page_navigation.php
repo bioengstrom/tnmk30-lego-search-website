@@ -3,7 +3,11 @@
 		if ($Page != 1) { //Display previous button only if not on first page
 			echo "<li class='pageList'><a href='".$link_search."&Page=".($Page-1)."'>Previous</a></li>";
 		}
-		if ($total_pages <= 10) {
+		
+		if ($total_pages == 1) { 
+			//Don't print page number
+		}
+		else if ($total_pages <= 10) {
 			for ($i = 1; $i <= $total_pages; $i++) {
 				echo "<li class='pageList'><a href='".$link_search."&Page=".$i."'>".$i."</a></li>";
 			}
@@ -23,7 +27,9 @@
 				echo "<li class='pageList'><a href='".$link_search."&Page=".$i."'>".$i."</a></li>";
 			}
 		}
-		if ($Page != $total_pages) { //Display next button only if not on last page
+		
+		if (
+		$Page != $total_pages) { //Display next button only if not on last page
 			echo "<li class='pageList'><a href='".$link_search."&Page=".($Page+1)."'>Next</a></li>";
 		}
 	echo "</ul>";
