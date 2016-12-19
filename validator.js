@@ -36,11 +36,3 @@ function displayWarning(visual) {
     alert.style.opacity = "1"; //keeps error message ON
   }
 }
-//takes care of animations for different browser variations
-function animation(animationType, directory) {
-  directory.style.webkitAnimation = animationType;
-  directory.style.MozAnimation = animationType;
-  directory.style.msAnimation = animationType;
-  directory.style.OAnimation = animationType;
-  directory.style.animation = animationType;
-}
