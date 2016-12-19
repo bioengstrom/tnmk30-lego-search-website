@@ -7,7 +7,7 @@ body {
   display: flex;
   justify-content: center;
 }
-a,p,h1,h2,h3,h4,h5,input {
+a,p,h1,h2,h3,h4,h5,input,li {
   font-family: 'open sans', arial;
 }
 .colContainer{

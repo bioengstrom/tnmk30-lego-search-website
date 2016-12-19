@@ -11,7 +11,6 @@
 			$SetID = $_GET['SetID']; //Get the SetID from the webpage link created by choose_set.php
 			
 			$Page = 1;
-			
 			if (isset($_GET['Page'])) $Page = $_GET['Page'];
 
 			$link = "http://weber.itn.liu.se/~stegu76/img.bricklink.com"; //Link to all images
@@ -34,7 +33,7 @@
 				/*PRINT SET OUTPUT*/
 				echo "<div id='legoItem'>";
 				echo "<span class='legoItemImgContainer'>";
-				echo "<img src='".$filename."'></img>";
+				echo "<img src='".$filename."' alt='Image does not exist'>";
 				echo "</span>";
 
 				echo "<div class='infoText'><p class='legoName'>".$setinfo["Setname"]."</p>
@@ -48,7 +47,7 @@
 
 			echo "<form name='sortForm' method='POST'>
 				 <select name='sortForm'>
-				 <option value='Partname'>-- Choose an option --</option>
+				 <option value='Partname'>-- Choose a sorting option --</option>
 				 <option value='Partname ASC'>Name Ascending</option>
 				 <option value='Partname DESC'>Name Descending</option>
 				 <option value='PartID ASC'>ID-number Ascending</option>
@@ -107,7 +106,7 @@
 				/*PRINT SET PARTS OUTPUT*/
 				echo "<a class='legoListItem' href='inventory_part.php?PartID=".$PartID."&ColorID=".$ColorID."'>";
 				echo "<div>";
-				echo "<img src='".$filename."'>";
+				echo "<img src='".$filename."' alt='Image does not exist'>";
 				echo "<span>";
 				echo "<p class='legoListItemTitle'>".$row["Partname"]."</p>";
 				echo "<p class='legoListItemId'><span>ID: </span>".$row["PartID"]."</p>";

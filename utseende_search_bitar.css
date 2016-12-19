@@ -301,3 +301,10 @@
 	list-style-type: none;
 	padding: 0 3px;
 }
+
+.wrongSearch {
+	font-size: 2vw;
+}
+.wrongSearch span {
+	font-weight: 700;
+}
