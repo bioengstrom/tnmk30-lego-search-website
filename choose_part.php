@@ -31,10 +31,13 @@
 			 <option value='PartID ASC'>ID-number Ascending</option>
 			 <option value='PartID DESC'>ID-number Descending</option>
 			 </select>
+			 <input type='hidden' name='oldKeyword' value='".$keyword."'/>
 			 <input type = 'submit' value = 'Sort' />
 			 </form>";
 
 		$sort = "Partname";
+		
+		if (isset($_GET['Sort'])) $sort = $_GET['Sort']; 
 
 		if (isset($_POST['sortForm'])) $sort = $_POST['sortForm']; 
 
@@ -91,7 +94,7 @@
 			echo "</a>";
 		}
 		
-		$link_search = "choose_part.php?Keyword=".$keyword;
+		$link_search = "choose_part.php?Keyword=".$keyword."&Sort=".$sort;
 		
 		mysqli_close($connection);
     ?>

@@ -58,6 +58,8 @@
 				 </form>";
 
 			$sort = "Partname ASC";
+			
+			if (isset($_GET['Sort'])) $sort = $_GET['Sort']; 
 
 			if (isset($_POST['sortForm'])) $sort = $_POST['sortForm'];
 
@@ -116,7 +118,7 @@
 				echo "</a>";
 			}
 			
-			$link_search = "inventory_set.php?SetID=".$SetID;
+			$link_search = "inventory_set.php?SetID=".$SetID."&Sort=".$sort;
 			var_dump($link_search);
 			
 			mysqli_close($connection);
