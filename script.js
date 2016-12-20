@@ -1,11 +1,13 @@
 //resets the user at the index page
 function reloadPage() {
   window.location = "flumindex.php";
-
 }
 //loads the about page
 function loadAbout() {
   window.location = "about.php";
+}
+function submit() {
+  form.submit();
 }
 
 //takes care of animations for different browser variations

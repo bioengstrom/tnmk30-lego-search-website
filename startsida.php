@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 	<head>
-		<title>Lego DB searcher 2000</title>
+		<title>Lego DB Finder</title>
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700" rel="stylesheet">
 		<link href="utseende.css" rel="stylesheet" type="text/css"/>
 		<link href="animation.css" rel="stylesheet" type="text/css"/>
@@ -28,12 +28,12 @@
 							<h3>Sets</h3>
 						</div>
 						<div id="aboutTab" onclick="loadAbout()">
-							<h3>About</h3>
+							<h3>?</h3>
 						</div>
 					</div>
 					<form action="search_bit.php" method="post">
 						<h5 class="alertWarning">Search value must be at least 3 characters</h5>
-						<input id="keyword" type="text" name="keyword" onkeyup="runFunction(), toggleButtons(), enterKeyPress(event)" autofocus autocomplete="off">
+						<input id="keyword" type="text" name="keyword" onkeyup="runFunction(), toggleButtons(), enterKeyActivation(event)"  autocomplete="off">
 						<div id="searchButtonContainer">
 							<input id="searchButton" type="submit" value="search" name="search">
 							<div id="warningButton" onclick="warningButtonClick()">

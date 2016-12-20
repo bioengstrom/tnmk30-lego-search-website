@@ -1,4 +1,4 @@
-//adds timed event, therefor, warning message doesn't display directly
+//adds timed event, therefor, warning message doesn't display right away
 var timerValidator = true;
 function runFunction() {
   if(timerValidator == true) {
@@ -8,30 +8,54 @@ function runFunction() {
     checkLength();
   }
 }
+
 //checks length of string entered in searchbar.
 function checkLength() {
-  timerValidator = false;
+  timerValidator = false; //runFunction skips timed event next time
   var keyword = document.getElementById("keyword");
-  if(keyword.value.length >= 3 || keyword.value.length == 0) {
+  if(keyword.value.length >= 3 || keyword.value.length == 0) { //OBS length == 0,
     displayWarning("none");
   }
   else {
     displayWarning("block");
   }
 }
+
+//simulates warningButton to work like type=submit, so the enterKey toggles warning message.
+function enterKeyActivation(event) {
+  var keyword = document.getElementById("keyword");
+  var enterKey = 13; //13 is the keyCode for the Enter (a.k.a. Return) button.
+  if(keyword.value.length < 3) {//no need to register keyCode and which if length < 3
+    if(event.keyCode == enterKey || event.which == enterKey) {
+      warningButtonClick();
+      console.log("hello");
+    }
+  }
+}
+
+//if the warningButton is pressed, checks if the warning message should be displayed.
+function warningButtonClick() {
+  timerValidator = false; //runFunction skips timed event next time
+  var keyword = document.getElementById("keyword");
+  if(keyword.value.length >= 3) { //displays even if nothing is entered yet.
+    displayWarning("none");
+  }
+  else {
+    displayWarning("block");
+  }
+}
+
 //reveals warning message if entered string is too short.
 function displayWarning(visual) {
   var alert = document.getElementsByClassName("alertWarning")[0];
-  var fadeTime = 200;
+  var fadeTime = 250;
   if (visual == "none") {
-    console.log("No error message");
-    if(alert.style.opacity == "1") { //Error message showing? if no, don't fadeOut.
+    if(alert.style.opacity == "1") { //Error message showing? if not, don't fadeOut.
       animation("fadeOut "+fadeTime+"ms", alert);
       alert.style.opacity = "0"; //keeps error message OFF
     }
   }
   else if (visual == "block") {
-    console.log("Display error message");
     animation("fadeIn "+fadeTime+"ms", alert);
     alert.style.opacity = "1"; //keeps error message ON
   }
