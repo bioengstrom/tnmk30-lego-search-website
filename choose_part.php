@@ -3,27 +3,36 @@
   <div id="itemContainer">
 
     <?php
+		//Establish connection with the database
 		$connection = mysqli_connect("mysql.itn.liu.se", "lego", "", "lego");
 
 		//If unable to connect display error message
 		if (!$connection) die('MySQL connection error');
 
+		//Set default page
 		$Page = 1;
-
+		//If set fetch pagenumber from GET
 		if (isset($_GET['Page'])) $Page = $_GET['Page'];
 
-		$link = "http://weber.itn.liu.se/~stegu76/img.bricklink.com"; //Link to all images
+		//Rootlink to all images
+		$link = "http://weber.itn.liu.se/~stegu76/img.bricklink.com";
 
+		//Filtered user input
 		$keyword = mysqli_real_escape_string($connection, $_POST["keyword"]);
+		//Fetch keyword when sorting
 		if (isset($_POST['oldKeyword'])) $keyword = $_POST['oldKeyword'];
+		//Fetch keyword when changing page
 		if (isset($_GET['Keyword'])) $keyword = $_GET['Keyword'];
 
+		//Set default sorting
 		$sort = "Partname";
+		//If coming from another page, fetch sorting option from GET
 		if (isset($_GET['Sort'])) $sort = $_GET['Sort'];
 
+		//Query to count all items with the chosen keyword
 		$result = mysqli_query($connection, "SELECT DISTINCT parts.Partname, parts.PartID, inventory.ColorID, colors.Colorname FROM parts, inventory, colors
 								WHERE (PartID LIKE '%$keyword%' OR Partname LIKE '%$keyword%') AND parts.PartID=inventory.ItemID
-								AND inventory.ColorID=colors.ColorID ORDER BY $sort"); //Get all parts that contain the keyword
+								AND inventory.ColorID=colors.ColorID ORDER BY $sort");
 
 		$counter = 0;
 		$max_per_page = 20;
@@ -31,10 +40,11 @@
 		while($row = mysqli_fetch_array($result)) {
 			$counter++; }
 
+		//If no results were found, display error message
 		if ($counter == 0) {
 			include("error_message.php");
 		}
-		else {
+		else {	//Print header and sort form
 			print("<p id ='amountParts'>These parts contain the keyword: <span>".$keyword."</span></p>
 					<div id='allParts'>");
 
@@ -49,17 +59,24 @@
 				 <input type='hidden' name='oldKeyword' value='".$keyword."'/>
 				 <input type = 'submit' value = 'Sort' />
 				 </form>";
+				 
+			//If sorting option has been chosen from sortForm on the current page
 			if (isset($_POST['sortForm'])) $sort = $_POST['sortForm'];
+			
+			//Calculate how many pages to display 
 			$total_pages = floor($counter / $max_per_page) + 1;
 
+			//Depending on page number, calculate starting point for LIMIT in the query
 			$limit_start = ($Page * $max_per_page) - $max_per_page;
 
+			//Query to fetch all results on current page
 			$pageresult = mysqli_query($connection, "SELECT DISTINCT parts.Partname, parts.PartID, inventory.ColorID,
 													 colors.Colorname FROM parts, inventory, colors WHERE (PartID LIKE
 													 '%$keyword%' OR Partname LIKE '%$keyword%') AND parts.PartID=inventory.ItemID
 													 AND inventory.ColorID=colors.ColorID ORDER BY $sort LIMIT $limit_start,
 													 $max_per_page");
 
+			//Print result content								
 			while($row = mysqli_fetch_array($pageresult) AND $keyword != NULL){ //Display all parts containing the keyword
 
 				$PartID = $row['PartID'];
@@ -92,7 +109,8 @@
 				echo "</div>";
 				echo "</a>";
 			}
-
+			
+			//Create link for page navigation
 			$link_search = "choose_part.php?Keyword=".$keyword."&Sort=".$sort;
 			include("page_navigation.php");
 		}
