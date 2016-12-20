@@ -10,10 +10,11 @@
 		<script src="searchtab.js"></script>
 		<script src="validator.js"></script>
 		<script src="validatorButton.js"></script>
+		<script src="page_nav_responsivness.js"></script>
 		<meta name="theme-color" content="#1A237E">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	</head>
-	<body onload="tabColor(), toggleButtons()">
+	<body onload="tabColor(), toggleButtons(), changeNav()">
 		<div class="colContainer">
 			<div id="startContainerBG">
 			</div>

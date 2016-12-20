@@ -19,9 +19,6 @@
 	max-width: 70%;
 	margin: auto;
 }
-#allParts form input{
-	background-color:
-}
 /* CSS FOR SHOWING A SINGLE ListItem*/
 #legoItem{
 	max-width: 70%;
@@ -120,13 +117,13 @@
 .legoListItem:hover{
 	border-bottom: 3px solid #1A237E;
 }
-.legoListItem div{
+.legoListItem div:first-child{
 	height: 100%;
 	display: flex;
 	flex-flow: row;
 	align-items: center;
 }
-.legoListItem span{
+.legoListItem div{
 	padding:  5px 0;
 }
 .legoListItem div img{
@@ -159,13 +156,6 @@
 #allListItems {
 	display: flex;
 	flex-flow: row wrap;
-}
-
-/* PAGE NAV*/
-.pageList {
-	display: inline-block;
-	list-style-type: none;
-	padding: 0 3px;
 }
 
 @media screen and (max-width: 1500px) {
@@ -281,6 +271,13 @@
 		margin: 5px 0;
 	}
 }
+/*for page navigation changes*/
+@media screen and (max-width: 520px) {
+	.pageListButton a{
+		width: 15vw;
+		text-align: center;
+	}
+}
 @media screen and (max-width: 440px) {
 	.legoName{
 		font-size: 3.8vw;
@@ -319,4 +316,30 @@
 	.legoListItemId, .legoListItemColor{
 		font-size: 3.6vw;
 	}
+}
+/*CSS FOR PAGE NAVIGATION MENY*/
+#pageMeny {
+	margin: 0 auto;
+	width: fit-content;
+}
+ul.pageNavigation {
+	display: inline-block;
+	padding: 0;
+	margin-bottom: 50px;
+}
+ul.pageNavigation li {
+	display: inline;
+}
+ul.pageNavigation li a, .pageListButton a{
+	background-color: white;
+    color: black;
+    float: left;
+    padding: 4px 8px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border: 1px solid #ddd;
+    margin: 2px 2px;
+}
+ul.pageNavigation li a:hover {
+	background-color: #ddd;
 }

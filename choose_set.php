@@ -3,24 +3,33 @@
   <div id="itemContainer">
 
     <?php
+		//Establish connection with the database
 		$connection = mysqli_connect("mysql.itn.liu.se", "lego", "", "lego");
 
 		//If unable to connect display error message
 		if (!$connection) die('MySQL connection error');
 
+		//Set default page
 		$Page = 1;
+		//If set fetch pagenumber from GET
 		if (isset($_GET['Page'])) $Page = $_GET['Page'];
 
-		$link = "http://weber.itn.liu.se/~stegu76/img.bricklink.com"; //Link to all images
+		//Rootlink to all images
+		$link = "http://weber.itn.liu.se/~stegu76/img.bricklink.com";
 
-		$keyword = mysqli_real_escape_string($connection, $_POST["keyword"]); //The users search-word
+		//Filtered user input
+		$keyword = mysqli_real_escape_string($connection, $_POST["keyword"]);
+		//Fetch keyword when sorting
 		if (isset($_POST['oldKeyword'])) $keyword = $_POST['oldKeyword'];
+		//Fetch keyword when changing page
 		if (isset($_GET['Keyword'])) $keyword = $_GET['Keyword'];
 
-		$sort = "Setname";
+		//Set default sorting
+		$sort = "Setname ASC";
+		//If coming from another page, fetch sorting option from GET
 		if (isset($_GET['Sort'])) $sort = $_GET['Sort'];
 
-
+		//Query to count all items with the chosen keyword
 		$result = mysqli_query($connection, "SELECT Setname, SetID FROM sets WHERE (SetID LIKE '%$keyword%'
 											OR Setname LIKE '%$keyword%') ORDER BY $sort");
 
@@ -31,10 +40,11 @@
 			$counter++;
 		}
 
+		//If no results were found, display error message
 		if ($counter == 0) {
 			include("error_message.php");
 		}
-		else {
+		else { //Print header and sort form
 			echo "<p id ='amountParts'>These sets contain the keyword: <span>".$keyword."</span></p>";
 			echo "<div id='allParts'>";
 
@@ -50,16 +60,23 @@
 				<input type = 'submit' value = 'Sort' />
 				</form>";
 
+			//If sorting option has been chosen from sortForm on the current page
 			if (isset($_POST['sortForm'])) $sort = $_POST['sortForm'];
+
+			//Calculate how many pages to display
 			$total_pages = floor($counter / $max_per_page) + 1;
+
+			//Depending on page number, calculate starting point for LIMIT in the query
 			$limit_start = ($Page * $max_per_page) - $max_per_page;
 
+			//Query to fetch all results on current page
 			$pageresult = mysqli_query($connection, "SELECT Setname, SetID FROM sets WHERE (sets.SetID LIKE '%$keyword%'
 													 OR sets.Setname LIKE '%$keyword%') ORDER BY $sort LIMIT $limit_start,
-													 $max_per_page"); //Get all sets that contain the keyword
+													 $max_per_page");
 
-			while($row = mysqli_fetch_array($pageresult) AND $keyword != NULL){ //Display all sets containing the keyword
-
+			//Print result content
+			while($row = mysqli_fetch_array($pageresult) AND $keyword != NULL)
+			{
 				$SetID = $row['SetID'];
 				$Setname = $row['Setname'];
 
@@ -80,14 +97,15 @@
 				echo "<a class='legoListItem' href='inventory_set.php?SetID=".$SetID."'>"; //Link to the displayed set
 				echo "<div>";
 				echo "<img src='".$filename."' alt='Image does not exist'alt='Image does not exist'>";
-				echo "<span>
-					 <p class='legoListItemTitle'>".$Setname."</p>
-					 <p class='legoListItemId'><span>id: </span>".$SetID."</p>
-					 </span>";
+				echo "<div>
+  					 <p class='legoListItemTitle'>".$Setname."</p>
+  					 <p class='legoListItemId'><span>id: </span>".$SetID."</p>
+  					 </div>";
 				echo "</div>";
 				echo "</a>";
 			}
-
+      echo "</div>";
+			//Create link for page navigation
 			$link_search = "choose_set.php?Keyword=".$keyword."&Sort=".$sort;
 			include("page_navigation.php");
 		}
