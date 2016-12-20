@@ -1,6 +1,8 @@
 <?php
+	echo"<div id='pageMeny'>";
+	
 	//Diplay of page navigation meny
-	echo "<ul>";
+	echo "<ul class='pageNavigation'>";
 	
 		//Display previous button only if not on first page
 		if ($Page != 1) { 
@@ -42,4 +44,6 @@
 		}
 		
 	echo "</ul>";
+	
+	echo "</div>";
 ?>

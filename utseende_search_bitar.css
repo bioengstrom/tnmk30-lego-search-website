@@ -161,13 +161,6 @@
 	flex-flow: row wrap;
 }
 
-/* PAGE NAV*/
-.pageList {
-	display: inline-block;
-	list-style-type: none;
-	padding: 0 3px;
-}
-
 @media screen and (max-width: 1500px) {
 
 	#amountParts, #ListItemParts{
@@ -320,3 +313,29 @@
 		font-size: 3.6vw;
 	}
 }
+/*CSS FOR PAGE NAVIGATION MENY*/
+#pageMeny {
+	margin: 0 auto;
+}
+ul.pageNavigation {
+	display: inline-block;
+	padding: 0;
+	margin-bottom: 50px;
+} 
+ul.pageNavigation li {
+	display: inline;
+}
+ul.pageNavigation li a {
+	background-color: white;
+    color: black;
+    float: left;
+    padding: 4px 8px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border: 1px solid #ddd;
+    margin: 2px 2px;
+}
+ul.pageNavigation li a:hover {
+	background-color: #ddd;
+}
+
