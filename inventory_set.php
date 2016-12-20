@@ -8,9 +8,9 @@
 
 			//If unable to connect display error message
 			if (!$connection) die('MySQL connection error');
-			
+
 			//Get the SetID from the webpage link created by choose_set.php
-			$SetID = $_GET['SetID']; 
+			$SetID = $_GET['SetID'];
 
 			//Set default page
 			$Page = 1;
@@ -18,10 +18,10 @@
 			if (isset($_GET['Page'])) $Page = $_GET['Page'];
 
 			//Rootlink to all images
-			$link = "http://weber.itn.liu.se/~stegu76/img.bricklink.com"; 
+			$link = "http://weber.itn.liu.se/~stegu76/img.bricklink.com";
 
 			//Query to get information about the chosen set
-			$setsearch = mysqli_query($connection, "SELECT SetID, Setname, Year FROM sets WHERE SetID='$SetID'"); 
+			$setsearch = mysqli_query($connection, "SELECT SetID, Setname, Year FROM sets WHERE SetID='$SetID'");
 
 			//Print information about the set
 			while($setinfo = mysqli_fetch_array($setsearch))
@@ -32,7 +32,7 @@
 
 				if($imageinfo['has_largejpg']) { // Use JPG if it exists
 					$filename = "$link/SL/$SetID.jpg";
-				} 
+				}
 				else if($imageinfo['has_largegif']) { // Use GIF if JPG is unavailable
 					$filename = "$link/SL/$SetID.gif";
 				}
@@ -72,7 +72,7 @@
 			if (isset($_GET['Sort'])) $sort = $_GET['Sort'];
 			//If sorting option has been chosen from sortForm on the current page
 			if (isset($_POST['sortForm'])) $sort = $_POST['sortForm'];
-			
+
 			//Query to count all items in the chosen set
 			$result = mysqli_query($connection, "SELECT parts.Partname, parts.PartID, inventory.ItemID, colors.ColorID,
 									colors.Colorname, inventory.Quantity, sets.Setname, sets.SetID FROM sets, inventory,
@@ -86,8 +86,8 @@
 			while($row = mysqli_fetch_array($result)) {
 				$counter++;
 			}
-			
-			//Calculate how many pages to display 
+
+			//Calculate how many pages to display
 			$total_pages = floor($counter / $max_per_page) + 1;
 
 			//Depending on page number, calculate starting point for LIMIT in the query
@@ -101,7 +101,7 @@
 									inventory.ColorID=colors.ColorID ORDER BY $sort LIMIT $limit_start, $max_per_page"); //Get wanted information about the set
 
 			//Print result content
-			while($row = mysqli_fetch_array($pageresult)) 
+			while($row = mysqli_fetch_array($pageresult))
 			{
 				$PartID = $row['PartID'];
 				$ColorID = $row['ColorID'];
@@ -124,20 +124,20 @@
 				echo "<a class='legoListItem' href='inventory_part.php?PartID=".$PartID."&ColorID=".$ColorID."'>";
 				echo "<div>";
 				echo "<img src='".$filename."' alt='Image does not exist'>";
-				echo "<span>";
+				echo "<div>";
 				echo "<p class='legoListItemTitle'>".$row["Partname"]."</p>";
 				echo "<p class='legoListItemId'><span>ID: </span>".$row["PartID"]."</p>";
 				echo "<p><span>Color: </span>".$row["Colorname"]."</p>";
 				echo "<p><span>Quantity: </span>".$row["Quantity"]."</p>";
-				echo "</span>";
+				echo "</div>";
 				echo "</div>";
 				echo "</a>";
 			}
-
+			echo "</div>";
 			//Create link for page navigation
 			$link_search = "inventory_set.php?SetID=".$SetID."&Sort=".$sort;
 			include("page_navigation.php");
-			
+
 			mysqli_close($connection);
 		?>
 		</div>

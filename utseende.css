@@ -39,9 +39,8 @@ a,p,h1,h2,h3,h4,h5,input,li {
   background-color: #3F51B5;
   background-image: url("search_sats.jpg");
   background-size: cover;
-  background-position-y: -100px;
+  background-position: 0 -100px;
   background-repeat: no-repeat;
-  -webkit-filter-: brightness(0.7);
   filter:brightness(0.6);
   width: 90%;
   height: 600px;
@@ -223,7 +222,7 @@ a,p,h1,h2,h3,h4,h5,input,li {
 .wrongSearchHeader{
   font-size: 1.4vw;
   margin: 0 auto;
-  padding: 0 auto;
+  padding: 0;
 }
 #resultError li span{
   font-style: italic;
@@ -263,7 +262,7 @@ a,p,h1,h2,h3,h4,h5,input,li {
  }
 
 
-}
+
 @media screen and (min-width: 1600px) {
   #startHeader span{
     font-size: 70px;
@@ -376,7 +375,12 @@ a,p,h1,h2,h3,h4,h5,input,li {
     font-size: 1.8vw;
     line-height: 0.1vw;
   }
-
+  .wrongSearch{
+      font-size: 2vw;
+  }
+  .wrongSearchHeader{
+      font-size: 1.8vw;
+  }
 }
 
 @media screen and (max-width: 800px) {
@@ -426,6 +430,9 @@ a,p,h1,h2,h3,h4,h5,input,li {
   #searchBarContainer p{
     font-size: 2.2vw;
   }
+  .wrongSearchHeader{
+      font-size: 2vw;
+  }
 }
 
 
@@ -463,13 +470,19 @@ a,p,h1,h2,h3,h4,h5,input,li {
     font-size: 2vw;
     width: 90%;
   }
+  .wrongSearch{
+      font-size: 2.4vw;
+  }
+  .wrongSearchHeader{
+      font-size: 2vw;
+  }
 }
 @media screen and (max-width: 600px) {
   a,p,h1,h2,h3,h4,h5,input,li {
     font-size: 2vw;
   }
   #startContainerBG{
-    background-position-y: 0px;
+    background-position: 0 0;
   }
   #searchTabContainer{
     padding-top: 0;
@@ -507,6 +520,12 @@ a,p,h1,h2,h3,h4,h5,input,li {
     font-size: 2.2vw;
     line-height: 0.1vw;
   }
+  .wrongSearch{
+      font-size: 2.8vw;
+  }
+  .wrongSearchHeader{
+      font-size: 2.2vw;
+  }
 }
 
 @media screen and (max-width: 500px) {
@@ -534,6 +553,12 @@ a,p,h1,h2,h3,h4,h5,input,li {
   }
   #searchBarContainer p{
     font-size: 2.6vw;
+  }
+  .wrongSearch{
+      font-size: 3vw;
+  }
+  .wrongSearchHeader{
+      font-size: 2.6vw;
   }
 }
 @media screen and (max-width: 440px) {
@@ -574,6 +599,12 @@ a,p,h1,h2,h3,h4,h5,input,li {
   #searchButtonContainer{
     margin-top: 9.4vw;
   }
+  .wrongSearch{
+      font-size: 3.6vw;
+  }
+  .wrongSearchHeader{
+      font-size: 3.2vw;
+  }
 
 }
 /*IPHONE 6/7 RESOLUTION*/
@@ -612,6 +643,12 @@ a,p,h1,h2,h3,h4,h5,input,li {
   #searchButtonContainer{
     margin-top: 9.4vw;
   }
+  .wrongSearch{
+      font-size: 4vw;
+  }
+  .wrongSearchHeader{
+      font-size: 3.2vw;
+  }
 }
 
 @media screen and (max-width: 340px) {
@@ -627,6 +664,12 @@ a,p,h1,h2,h3,h4,h5,input,li {
   #searchBarContainer input[type=text], #searchBarContainer input[type=submit]{
     font-size: 3.8vw;
   }
+  .wrongSearch{
+      font-size: 4.6vw;
+  }
+  .wrongSearchHeader{
+      font-size: 4vw;
+  }
 }
 
 .about {
@@ -638,4 +681,3 @@ a,p,h1,h2,h3,h4,h5,input,li {
 .aboutHeader, .aboutText {
 	margin: 20px;
 }
-

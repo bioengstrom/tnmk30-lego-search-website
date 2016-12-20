@@ -59,11 +59,11 @@
 				 <input type='hidden' name='oldKeyword' value='".$keyword."'/>
 				 <input type = 'submit' value = 'Sort' />
 				 </form>";
-				 
+
 			//If sorting option has been chosen from sortForm on the current page
 			if (isset($_POST['sortForm'])) $sort = $_POST['sortForm'];
-			
-			//Calculate how many pages to display 
+
+			//Calculate how many pages to display
 			$total_pages = floor($counter / $max_per_page) + 1;
 
 			//Depending on page number, calculate starting point for LIMIT in the query
@@ -76,7 +76,7 @@
 													 AND inventory.ColorID=colors.ColorID ORDER BY $sort LIMIT $limit_start,
 													 $max_per_page");
 
-			//Print result content								
+			//Print result content
 			while($row = mysqli_fetch_array($pageresult) AND $keyword != NULL){ //Display all parts containing the keyword
 
 				$PartID = $row['PartID'];
@@ -101,15 +101,15 @@
 				echo "<a class='legoListItem' href='inventory_part.php?PartID=".$PartID."&ColorID=".$ColorID."'>"; //Link to the displayed set
 				echo "<div>";
 				echo "<img src='".$filename."' alt='Image does not exist'>";
-				echo "<span>
-					 <p class='legoListItemTitle'>".$Partname."</p>
-					 <p class='legoListItemId'><span>ID: </span>".$PartID."</p>
-					 <p class='legoListItemColor'><span>Color: </span>".$Colorname."</p>
-					 </span>";
+				echo "<div>
+  					 <p class='legoListItemTitle'>".$Partname."</p>
+  					 <p class='legoListItemId'><span>ID: </span>".$PartID."</p>
+  					 <p class='legoListItemColor'><span>Color: </span>".$Colorname."</p>
+  					 </div>";
 				echo "</div>";
 				echo "</a>";
 			}
-			
+      echo "</div>";
 			//Create link for page navigation
 			$link_search = "choose_part.php?Keyword=".$keyword."&Sort=".$sort;
 			include("page_navigation.php");

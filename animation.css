@@ -2,7 +2,7 @@
 /*FadeIn displays element, fadeOut hides element*/
 
 /*fadeIn animation*/
-@-webkit-keyframes fadeIn {
+/*@-webkit-keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
 }
@@ -17,14 +17,14 @@
 @-o-keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
-}
+}*/
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
 }
 
 /*fadeOut animation*/
-@-webkit-keyframes fadeOut {
+/*@-webkit-keyframes fadeOut {
   from { opacity: 1; }
   to { opacity: 0; }
 }
@@ -39,7 +39,7 @@
 @-o-keyframes fadeOut {
   from { opacity: 1; }
   to { opacity: 0; }
-}
+}*/
 @keyframes fadeOut {
   from { opacity: 1; }
   to { opacity: 0; }

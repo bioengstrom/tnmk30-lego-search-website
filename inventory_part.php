@@ -26,7 +26,7 @@
 													colors WHERE parts.PartID='$PartID' AND colors.ColorID='$ColorID'");
 
 			//Print information and image about the part
-			while($setinfo = mysqli_fetch_array($setsearch)) 
+			while($setinfo = mysqli_fetch_array($setsearch))
 			{
 				$imagesearch = mysqli_query($connection, "SELECT * FROM images WHERE ItemID='$PartID' AND ColorID='$ColorID'
 														  AND ItemTypeID='P'");
@@ -35,14 +35,14 @@
 
 				if($imageinfo['has_jpg']) { // Use JPG if it exists
 					$filename = "$link/P/$ColorID/$PartID.jpg";
-				} 
+				}
 				else if($imageinfo['has_gif']) { // Use GIF if JPG is unavailable
 					$filename = "$link/P/$ColorID/$PartID.gif";
 				}
 				else { // If neither format is available, insert a placeholder image
 					$filename = "error.png";
 				}
-	
+
 				echo "<div id='legoItem'>";
 				echo "<span class='legoItemImgContainer'>";
 				echo "<img src='".$filename."' alt='Image does not exist'>";
@@ -90,11 +90,11 @@
 
 			while($row = mysqli_fetch_array($result)) {
 				$counter++;
-			} 
-			
-			//Calculate how many pages to display 
+			}
+
+			//Calculate how many pages to display
 			$total_pages = floor($counter / $max_per_page) + 1;
-			
+
 			//Depending on page number, calculate starting point for LIMIT in the query
 			$limit_start = ($Page * $max_per_page) - $max_per_page;
 
@@ -122,23 +122,23 @@
 				else { // If neither format is available, insert a placeholder image
 				 	$filename = "error.png";
 				}
-				
+
 				echo "<a class='legoListItem' href='inventory_set.php?SetID=".$SetID."'>";
 				echo "<div>";
 				echo "<img src='".$filename."' alt='Image does not exist'>";
-				echo "<span>";
+				echo "<div>";
 				echo "<p class='legoListItemTitle'>".$row["Setname"]."</p>";
 				echo "<p class='legoListItemId'><span>ID: </span>".$row["SetID"]."</p>";
 				echo "<p><span>Quantity: </span>".$row["Quantity"]."</p>";
-				echo "</span>";
+				echo "</div>";
 				echo "</div>";
 				echo "</a>";
 			}
-
+			echo "</div>";
 			//Create link for page navigation
 			$link_search = "inventory_part.php?PartID=".$PartID."&ColorID=".$ColorID."&Sort=".$sort;
 			include("page_navigation.php");
-			
+
 			mysqli_close($connection);
 		?>
 

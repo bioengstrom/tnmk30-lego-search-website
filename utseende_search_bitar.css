@@ -19,9 +19,6 @@
 	max-width: 70%;
 	margin: auto;
 }
-#allParts form input{
-	background-color:
-}
 /* CSS FOR SHOWING A SINGLE ListItem*/
 #legoItem{
 	max-width: 70%;
@@ -120,13 +117,13 @@
 .legoListItem:hover{
 	border-bottom: 3px solid #1A237E;
 }
-.legoListItem div{
+.legoListItem div:first-child{
 	height: 100%;
 	display: flex;
 	flex-flow: row;
 	align-items: center;
 }
-.legoListItem span{
+.legoListItem div{
 	padding:  5px 0;
 }
 .legoListItem div img{
@@ -323,6 +320,7 @@
 /*CSS FOR PAGE NAVIGATION MENY*/
 #pageMeny {
 	margin: 0 auto;
+	width: fit-content;
 }
 ul.pageNavigation {
 	display: inline-block;
