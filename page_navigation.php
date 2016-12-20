@@ -1,16 +1,16 @@
 <?php
 	echo"<div id='pageMeny'>";
-	
+
 	//Diplay of page navigation meny
 	echo "<ul class='pageNavigation'>";
-	
+
 		//Display previous button only if not on first page
-		if ($Page != 1) { 
-			echo "<li class='pageList'><a href='".$link_search."&Page=".($Page-1)."'>Previous</a></li>";
+		if ($Page != 1) {
+			echo "<li class='pageListButton'><a href='".$link_search."&Page=".($Page-1)."'>Previous</a></li>";
 		}
-		
+
 		//Don't print page number if only one page
-		if ($total_pages == 1) { 
+		if ($total_pages == 1) {
 		}
 		//If <= 10 pages print all pages
 		else if ($total_pages <= 10) {
@@ -36,14 +36,15 @@
 				echo "<li class='pageList'><a href='".$link_search."&Page=".$i."'>".$i."</a></li>";
 			}
 		}
-		
+
 		//Display next button only if not on last page
 		if (
-		$Page != $total_pages) { 
-			echo "<li class='pageList'><a href='".$link_search."&Page=".($Page+1)."'>Next</a></li>";
+		$Page != $total_pages) {
+			echo "<li class='pageListButton'><a href='".$link_search."&Page=".($Page+1)."'>Next</a></li>";
 		}
-		
+
 	echo "</ul>";
-	
+
 	echo "</div>";
+	echo "<input type='hidden' value=".$Page." id='currentPageNum'>";
 ?>
