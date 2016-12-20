@@ -1,8 +1,6 @@
-//
+//change tabColor depending on session var, if not set default selected tab is Part
 function tabColor() {
-  //var lastClicked = "";
-  var lastClicked = sessionStorage.getItem("lastClicked");
-    console.log("mans" + lastClicked);
+  var lastClicked = sessionStorage.getItem("lastClicked"); //fetch session var
   if (lastClicked == "bit") {
     focus("bit");
   }
@@ -12,7 +10,7 @@ function tabColor() {
     focus("bit");
   }
 }
-
+//change tabcolor denpending on clicked item
 function changeTab(clicked){
   if (clicked == "searchBit") {
     focus("bit");
@@ -25,18 +23,21 @@ function changeTab(clicked){
     sessionStorage.setItem("lastClicked", lastClicked);
   }
 }
-
+//help function for changing all necessary vars both visually and logically
 function focus(type) {
+    //fetch vars
     var searchSats = document.getElementById('searchSats');
     var searchBit = document.getElementById('searchBit');
     var aboutTab = document.getElementById('aboutTab');
     var keyword = document.getElementById("keyword");
     var formTag = document.getElementsByTagName('form')[0];
+    //set autofocus for searchbar
     keyword.focus();
   if (type == "bit") {
     searchSats.style.backgroundColor = "#1A237E";
     searchBit.style.backgroundColor = "#3F51B5"; //gives this tab lighter color
 
+    //change placeholder and form action
     keyword.placeholder = "Search for Parts";
     formTag.action = "choose_part.php";
   }
@@ -44,6 +45,7 @@ function focus(type) {
     searchSats.style.backgroundColor = "#3F51B5"; //gives this tab lighter color
     searchBit.style.backgroundColor = "#1A237E";
 
+    //change placeholder and form action
     keyword.placeholder = "Search for Sets";
     formTag.action = "choose_set.php";
   }
