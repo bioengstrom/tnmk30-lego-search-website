@@ -6,9 +6,6 @@ function reloadPage() {
 function loadAbout() {
   window.location = "about.php";
 }
-function submit() {
-  form.submit();
-}
 
 //takes care of animations for different browser variations
 function animation(animationType, directory) {
