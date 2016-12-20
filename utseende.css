@@ -117,7 +117,10 @@ a,p,h1,h2,h3,h4,h5,input,li {
   cursor: pointer;
 }
 #aboutTab {
-  background-color: rgba(63, 81, 181, 0.7);
+  /*-----------------------------------------------------------------*/
+  /*this tab needs better css (reminder by setting background to red)*/
+  /*-----------------------------------------------------------------*/
+  background-color: red;
   margin-left: auto;
 }
 #searchBarContainer form{

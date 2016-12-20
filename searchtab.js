@@ -32,8 +32,7 @@ function focus(type) {
     var keyword = document.getElementById("keyword");
     var formTag = document.getElementsByTagName('form')[0];
     //set autofocus for searchbar
-    setTimeout(fuckThis, 1000);
-    //keyword.focus();
+    keyword.focus();
   if (type == "bit") {
     searchSats.style.backgroundColor = "#1A237E";
     searchBit.style.backgroundColor = "#3F51B5"; //gives this tab lighter color
@@ -50,8 +49,4 @@ function focus(type) {
     keyword.placeholder = "Search for Sets";
     formTag.action = "choose_set.php";
   }
-}
-
-function fuckThis() {
-  document.getElementById("keyword").focus();
 }

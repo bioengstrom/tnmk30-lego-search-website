@@ -1,6 +1,6 @@
 //resets the user at the index page
 function reloadPage() {
-  window.location = "flumindex.php";
+  window.location = "index.php";
 }
 //loads the about page
 function loadAbout() {
