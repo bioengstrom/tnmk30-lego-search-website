@@ -14,7 +14,7 @@ function mobileNav() {
   var currentPage = document.getElementById('currentPageNum').value;
   console.log("mobile nav");
   for (var i = 0; i < listItems.length; i++) {
-    if (listItems[i].innerHTML != "18") {
+    if (listItems[i].innerHTML != currentPage) {
       listItems[i].style.display = "none";
     }
   }
