@@ -14,7 +14,7 @@ function toggleButtons(){
 function toggleSearchButton(keyword, searchButton){
   if(keyword.value.length >= 3){
     searchButton.disabled = false;
-    timerValidator = false; //OBS, runFunction skips timed event next time
+    timerValidator = false; //runFunction skips timed event next time
   }
   else{
     searchButton.disabled = true;

@@ -19,12 +19,9 @@ function animation(animationType, directory){
 //sets autofocus on certain URL's
 function focusDependingOnPath(){
   //fetches the opened fileName from the opened path (the last part of the URL).
-    //from "http://stackoverflow.com/questions/423376/how-to-get-the-file-name-from-a-full-path-using-javascript"
   var fileNameIndex = location.pathname.lastIndexOf('/')+1; //fetch position of the last "/" (+1), which is the start position of the fileName
   var fileName = location.pathname.substring(fileNameIndex); //creates a new string with only the fileName
-
   if(fileName == "index.php" || fileName == "about.php" ){
-    //set autofocus for searchbar
-    document.getElementById("keyword").focus();
+    document.getElementById("keyword").focus(); //set autofocus for searchbar
   }
 }

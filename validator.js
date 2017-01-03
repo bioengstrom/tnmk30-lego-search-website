@@ -1,22 +1,22 @@
 //adds timed event, therefor, warning message doesn't display right away
 var timerValidator = true;
-function runFunction() {
-  if(timerValidator == true) {
+function runFunction(){
+  if(timerValidator == true){
     setTimeout(checkLength, 5000);
   }
-  else if(timerValidator == false) {
+  else if(timerValidator == false){
     checkLength();
   }
 }
 
 //checks length of string entered in searchbar.
-function checkLength() {
+function checkLength(){
   timerValidator = false; //runFunction skips timed event next time
   var keyword = document.getElementById("keyword");
-  if(keyword.value.length >= 3 || keyword.value.length == 0) { //OBS length == 0,
+  if(keyword.value.length >= 3 || keyword.value.length == 0){
     displayWarning("none");
   }
-  else {
+  else{
     displayWarning("block");
   }
 }
@@ -45,16 +45,16 @@ function warningButtonClick(){
 }
 
 //reveals warning message if entered string is too short.
-function displayWarning(visual) {
+function displayWarning(visual){
   var alert = document.getElementsByClassName("alertWarning")[0];
   var fadeTime = 250;
-  if (visual == "none") {
-    if(alert.style.opacity == "1") { //Error message showing? if not, don't fadeOut.
+  if (visual == "none"){
+    if(alert.style.opacity == "1"){ //Error message showing? if not, don't fadeOut.
       animation("fadeOut "+fadeTime+"ms", alert);
       alert.style.opacity = "0"; //keeps error message OFF
     }
   }
-  else if (visual == "block") {
+  else if (visual == "block"){
     animation("fadeIn "+fadeTime+"ms", alert);
     alert.style.opacity = "1"; //keeps error message ON
   }
