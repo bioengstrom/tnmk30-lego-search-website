@@ -1,3 +1,9 @@
+/*make submit button submit on onkeyup and not down
+only autofocus on index (change after it's done locally)
+ otherwise, scroll down to the content
+
+get filename in some way, then scroll down
+*/
 //adds timed event, therefor, warning message doesn't display right away
 var timerValidator = true;
 function runFunction() {
@@ -22,25 +28,24 @@ function checkLength() {
 }
 
 //simulates warningButton to work like type=submit, so the enterKey toggles warning message.
-function enterKeyActivation(event) {
+function enterKeyActivation(event){
   var keyword = document.getElementById("keyword");
-  var enterKey = 13; //13 is the keyCode for the Enter (a.k.a. Return) button.
-  if(keyword.value.length < 3) {//no need to register keyCode and which if length < 3
-    if(event.keyCode == enterKey || event.which == enterKey) {
-      warningButtonClick();
-      console.log("hello");
-    }
+  var lengthCondition = (keyword.value.length < 3);
+  var keyCondition = (event.keyCode == 13 || event.which == 13); //13 is the keyCode for the Enter (a.k.a. Return) button.
+  if(lengthCondition && keyCondition){
+    warningButtonClick();
+    console.log("hi sir");
   }
 }
 
 //if the warningButton is pressed, checks if the warning message should be displayed.
-function warningButtonClick() {
+function warningButtonClick(){
   timerValidator = false; //runFunction skips timed event next time
   var keyword = document.getElementById("keyword");
-  if(keyword.value.length >= 3) { //displays even if nothing is entered yet.
+  if(keyword.value.length >= 3){ //displays even if nothing is entered yet.
     displayWarning("none");
   }
-  else {
+  else{
     displayWarning("block");
   }
 }

@@ -12,6 +12,8 @@ function tabColor() {
 }
 //change tabcolor denpending on clicked item
 function changeTab(clicked){
+  keyword.focus(); //set autofocus for searchbar
+
   if (clicked == "searchBit") {
     focus("bit");
     lastClicked = "bit";
@@ -25,14 +27,13 @@ function changeTab(clicked){
 }
 //help function for changing all necessary vars both visually and logically
 function focus(type) {
-    //fetch vars
-    var searchSats = document.getElementById('searchSats');
-    var searchBit = document.getElementById('searchBit');
-    var aboutTab = document.getElementById('aboutTab');
-    var keyword = document.getElementById("keyword");
-    var formTag = document.getElementsByTagName('form')[0];
-    //set autofocus for searchbar
-    keyword.focus();
+  //fetch vars
+  var searchSats = document.getElementById('searchSats');
+  var searchBit = document.getElementById('searchBit');
+  var aboutTab = document.getElementById('aboutTab');
+  var keyword = document.getElementById("keyword");
+  var formTag = document.getElementsByTagName('form')[0];
+
   if (type == "bit") {
     searchSats.style.backgroundColor = "#1A237E";
     searchBit.style.backgroundColor = "#3F51B5"; //gives this tab lighter color
