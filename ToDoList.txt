@@ -1,6 +1,5 @@
 * the pageNavigation is not in the center of the window when using safari mobile or firefox
 * css for the about (or the "?") button
-* change names of all files so to english
 * make sure the animations work for all browsers using -webkit- etc.. and this needs to validate!!
 * remove rounded corners of the searchButton when using safari mobile (solution: http://stackoverflow.com/questions/5263260/stop-safari-mobile-from-giving-input-buttons-rounded-corners)
 
@@ -18,3 +17,4 @@ small changes:
 fixed:
 * fix autofocus for certain URL's
 * change the names of variables to english in "searchtab.js"
+* change names of all files to english
