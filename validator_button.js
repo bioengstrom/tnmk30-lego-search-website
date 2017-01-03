@@ -1,6 +1,3 @@
-/*------------------------------------------*/
-/*Functions to enable or disable the buttons*/
-/*------------------------------------------*/
 //runs toggleSearchButton and toggleWarningButton
 function toggleButtons(){
   var keyword = document.getElementById("keyword");

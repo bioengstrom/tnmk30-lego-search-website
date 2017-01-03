@@ -11,6 +11,7 @@ function tabColor(){
     focus("parts");
   }
 }
+
 //change tabcolor denpending on clicked item
 function changeTab(clicked){
   keyword.focus(); //set autofocus for searchbar
@@ -26,6 +27,7 @@ function changeTab(clicked){
     sessionStorage.setItem("lastClicked", lastClicked);
   }
 }
+
 //help function for changing all necessary vars both visually and logically
 function focus(type){
   //fetch vars

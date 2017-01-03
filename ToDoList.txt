@@ -1,18 +1,20 @@
-* the pageNavigation is not in the center of the window when using firefox.
+* the pageNavigation is not in the center of the window when using safari mobile or firefox
 * css for the about (or the "?") button
+* change names of all files so to english
 * make sure the animations work for all browsers using -webkit- etc.. and this needs to validate!!
-* change the names of variables to english in "searchtab.js"
 * remove rounded corners of the searchButton when using safari mobile (solution: http://stackoverflow.com/questions/5263260/stop-safari-mobile-from-giving-input-buttons-rounded-corners)
-
 
 suggestions:
 * scroll to search results, either using hash or something else. needs to be a smooth scroll and not an instant jump!
-
 
 small changes:
 * would be nice to autofucus when the entered keyword doesn't match anything on the Lego database.
 * make the animation for the warningButton smooth on fadeOut. (bug lies in the need to make it "display = 'none'".
 
 
+
+
+
 fixed:
 * fix autofocus for certain URL's
+* change the names of variables to english in "searchtab.js"

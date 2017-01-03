@@ -3,9 +3,9 @@
 	<head>
 		<title>Lego DB Finder</title>
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700" rel="stylesheet">
-		<link href="utseende.css" rel="stylesheet" type="text/css"/>
 		<link href="animation.css" rel="stylesheet" type="text/css"/>
-		<link href="utseende_search_bitar.css" rel="stylesheet" type="text/css"/>
+		<link href="style.css" rel="stylesheet" type="text/css"/>
+		<link href="style_search_parts.css" rel="stylesheet" type="text/css"/>
 		<script src="script.js"></script>
 		<script src="searchtab.js"></script>
 		<script src="validator.js"></script>
@@ -33,7 +33,7 @@
 							<h3>?</h3>
 						</div>
 					</div>
-					<form action="search_bit.php" method="post">
+					<form action="choose_part.php" method="post">
 						<h5 class="alertWarning">Search value must be at least 3 characters</h5>
 						<input id="keyword" type="text" name="keyword" onkeyup="runFunction(), toggleButtons(), enterKeyActivation(event)" autocomplete="off">
 						<div id="searchButtonContainer">
