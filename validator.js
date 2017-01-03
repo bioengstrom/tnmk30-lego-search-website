@@ -1,9 +1,3 @@
-/*make submit button submit on onkeyup and not down
-only autofocus on index (change after it's done locally)
- otherwise, scroll down to the content
-
-get filename in some way, then scroll down
-*/
 //adds timed event, therefor, warning message doesn't display right away
 var timerValidator = true;
 function runFunction() {
@@ -34,7 +28,6 @@ function enterKeyActivation(event){
   var keyCondition = (event.keyCode == 13 || event.which == 13); //13 is the keyCode for the Enter (a.k.a. Return) button.
   if(lengthCondition && keyCondition){
     warningButtonClick();
-    console.log("hi sir");
   }
 }
 
@@ -42,6 +35,7 @@ function enterKeyActivation(event){
 function warningButtonClick(){
   timerValidator = false; //runFunction skips timed event next time
   var keyword = document.getElementById("keyword");
+  keyword.focus(); //autofocus for the searchbar, even if it was out of focus previously
   if(keyword.value.length >= 3){ //displays even if nothing is entered yet.
     displayWarning("none");
   }
