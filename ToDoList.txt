@@ -1,8 +1,8 @@
-* the pageNavigation is not in the center of the window when using safari mobile or firefox
+* the pageNavigation is not in the center of the window when using safari (mobile), firefox and microsoft edge. 
 * css for the about (or the "?") button
 * make sure the animations work for all browsers using -webkit- etc.. and this needs to validate!!
 * remove rounded corners of the searchButton when using safari mobile (solution: http://stackoverflow.com/questions/5263260/stop-safari-mobile-from-giving-input-buttons-rounded-corners)
-
+* change to "This set consists of:" instead of "This item consists of:" on inventory_set.php (example: http://www.student.itn.liu.se/~isaen688/tnmk30/Projekt/LEGO-projekt/inventory_set.php?SetID=4789-1 ) 
 suggestions:
 * scroll to search results, either using hash or something else. needs to be a smooth scroll and not an instant jump!
 
