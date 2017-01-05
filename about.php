@@ -1,7 +1,7 @@
 <?php include("search_menu.html"); ?>
 			<div class ="about">
 
-				<h1 class="aboutHeader">How to search</h2>
+				<h1 class="aboutHeader">How to search</h1>
 				<p class="aboutText">Choose either Parts or Sets from the tabs above the search box depending on what you are
 					looking for. Then enter a part of a name or ID-number in order to get all Items containing the entered phrase.
 					Remember that if you enter more than one word in the searchbox the words have to follow in chronoligical order
@@ -11,7 +11,7 @@
 					keyword. You will be able to choose the product that you were looking for and get redirected to another page with
 					information about the chosen product. Good luck with your search!</p>
 
-				<h2 class="aboutHeader">About Us</h1>
+				<h2 class="aboutHeader">About Us</h2>
 				<p class="aboutText">This website was created by Isak Engström, Kevin Evans, Simon Källberg and Vera Fristedt
 					Andersson for a school projekt in a course called Electronic Publishing. Thus, a webpage that is not for
 					commercial use.</p>
