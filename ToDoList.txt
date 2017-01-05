@@ -1,14 +1,13 @@
-* the pageNavigation is not in the center of the window when using safari (mobile), firefox and microsoft edge. 
+* the pageNavigation is not in the center of the window when using safari (mobile), firefox or microsoft edge. 
 * css for the about (or the "?") button
 * remove rounded corners of the searchButton when using safari mobile (solution: http://stackoverflow.com/questions/5263260/stop-safari-mobile-from-giving-input-buttons-rounded-corners)
-* change to "This set consists of:" instead of "This item consists of:" on inventory_set.php (example: http://www.student.itn.liu.se/~isaen688/tnmk30/Projekt/LEGO-projekt/inventory_set.php?SetID=4789-1 ) 
 * make sure choose_set.php validates!!  
 
 suggestions:
 * scroll to search results, either using hash or something else. needs to be a smooth scroll and not an instant jump!
 
 small changes/bugs:
-* would be nice to autofucus when the entered keyword doesn't match anything on the Lego database.
+* would be nice to autofucus when the entered keyword doesn't match anything on the Lego database. (possible solution: http://stackoverflow.com/questions/5629684/how-to-check-if-element-exists-in-the-visible-dom)
 * make the animation for the warningButton smooth on fadeOut. (bug lies in the need to make it "display = 'none'".
 
 
@@ -20,3 +19,4 @@ fixed:
 * change the names of variables to english in "searchtab.js"
 * change names of all files to english
 * make sure the animations work for all browsers using -webkit- etc.. and this needs to validate (fixed by doing this in javascript instead of css) 
+* change to "This set consists of:" instead of "This item consists of:" on inventory_set.php (example: http://www.student.itn.liu.se/~isaen688/tnmk30/Projekt/LEGO-projekt/inventory_set.php?SetID=4789-1 ) 
