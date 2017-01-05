@@ -52,7 +52,7 @@
 			}
 
 			//Print header and sort form
-			echo "<p id ='ListItemParts'>This item consists of:</p>
+			echo "<p id ='ListItemParts'>This set consists of:</p>
 				  <div id='allParts'>";
 
 			echo "<form name='sortForm' method='POST'>
