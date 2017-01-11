@@ -22,7 +22,7 @@ function focusDependingOnPath(){
   var fileNameIndex = location.pathname.lastIndexOf('/')+1; //fetch position of the last "/" (+1), which is the start position of the fileName
   var fileName = location.pathname.substring(fileNameIndex); //creates a new string with only the fileName
 
-  if(fileName == "index.php" || fileName == "about.php" ){
+  if(fileName == "index.php" || fileName == "about.php" || fileName == ""){
     document.getElementById("keyword").focus(); //set autofocus for searchbar
   }
 }
