@@ -25,7 +25,7 @@
 		if (isset($_GET['Keyword'])) $keyword = $_GET['Keyword'];
 
 		//Set default sorting
-		$sort = "Setname ASC";
+		$sort = "Setname";
 		//If coming from another page, fetch sorting option from GET
 		if (isset($_GET['Sort'])) $sort = $_GET['Sort'];
 

@@ -321,6 +321,7 @@
 #pageMeny {
 	margin: 0 auto;
 	width: fit-content;
+	text-align: center;
 }
 ul.pageNavigation {
 	display: inline-block;
