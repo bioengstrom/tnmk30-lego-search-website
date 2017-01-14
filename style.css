@@ -166,7 +166,7 @@ a,p,h1,h2,h3,h4,h5,input,li {
   color: whitesmoke;
   font-size: 18px;
   font-weight: 300;
-  transition: linear 0.1s color, backgound-color;
+  transition: linear 0.1s color, background-color;
 }
 #searchBarContainer input[type=submit]:hover{
   background-color: #43A047;
@@ -249,7 +249,6 @@ a,p,h1,h2,h3,h4,h5,input,li {
 /*sort form*/
 #allParts form select{
   /*fix for standard button css */
-  appearance:none;
   -moz-appearance:none; /* Firefox */
   -webkit-appearance:none; /* Safari and Chrome */
 
@@ -279,7 +278,7 @@ a,p,h1,h2,h3,h4,h5,input,li {
    color: white;
    border-radius: 1px;
    cursor: pointer;
-   transition: linear 0.1s color, backgound-color;
+   transition: linear 0.1s color, background-color;
  }
  #allParts form input:hover{
    background-color: #3F51B5;
